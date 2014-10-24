@@ -22,8 +22,8 @@ Client-side
   * Multi-page applicatoin
   * It does not use ngRoute nor uiRoute
   * Role-based client-side auth. 
-  * encrypted jwt token with sessionStorage
-  * custom directives, [`ngd`](https://github.com/allenhwkim/angularjs-directives)
+  * JWT token encrypted into sessionStorage
+  * Custom directives, [`ngd`](https://github.com/allenhwkim/angularjs-directives)
 
 Server Setup
 ------------
