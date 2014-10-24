@@ -1,0 +1,21 @@
+<head>
+  <script src="/static/articles/destroy/articles-destroy-controller.js"></script>
+  <ngd-script src="/articles/{{::article._id}}.json" scope-var="article"></ngd-script>
+</head>
+
+<div ng-controller="ArticlesDestroyController">
+  Actions:
+  <a href="/articles/{{::article._id}}/update">Edit</a>
+  <a href="/" class="btn btn-default">List</a> 
+
+  <br/>
+  <b>Are you sure to delete this article?</b>
+  <a href="" ng-click="destroy()">Yes</a>
+  <br/>
+  <pre>{{::article.body}}</pre>
+  <div>
+    <div>Created At:{{::article.createdAt}} </div> 
+    <div>Updated At: {{::article.updatedAt}} </div>
+    <div>Type: {{::article.type}} </div>
+  </div>
+</div>

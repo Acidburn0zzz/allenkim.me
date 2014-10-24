@@ -1,0 +1,42 @@
+{
+  "name": "articles",
+  "version": "0.1.1",
+  "description": "articles management with markdown",
+  "main": "index.js",
+  "directories": {
+    "example": "examples",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/allenhwkim/articles.git"
+  },
+  "keywords": [
+    "articles",
+    "markdown",
+    "angularjs"
+  ],
+  "author": "Allen Kim",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "432a4074af7f1a0693ca2ef980bbb18eabfe0814",
+  "devDependencies": {
+    "gulp-jade": "~0.4.2",
+    "gulp": "~3.6.0",
+    "errorhandler": "~1.0.0"
+  },
+  "dependencies": {
+    "body-parser": "~1.0.1",
+    "express": "~4.0.0",
+    "jwt-simple": "^0.2.0",
+    "method-override": "~1.0.0",
+    "moment": "^2.8.3",
+    "mongoose": "~3.8.8",
+    "morgan": "^1.4.1",
+    "multiparty": "~3.2.8",
+    "pagedown": "~1.1.0"
+  }
+}

@@ -1,0 +1,16 @@
+var env = process.env.NODE_ENV || 'development';
+var config = {
+  layout: 'layout.html';
+}
+var environments = {
+  development: {
+    db: 'mongodb://<username>:<password>@<host>:<port>/<dbname>'
+  },
+  production: {
+    db: 'mongodb://<username>:<password>@<host>:<port>/<dbname>'
+  }
+}
+for (var key in config) {
+  environments[env][key] = config[key];
+}
+module.exports = environments[env];
