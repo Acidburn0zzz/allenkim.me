@@ -6,18 +6,25 @@ AngularJS Blog
 Server-side
 -----------
 
-  * NodeJS and Express for web server
-  * Configurable MongoDB and Mongoose for database
-  * JWT, JSON Web Token, for security check
+  * MongoDB
+  * Express
+  * AngularJS Template Rendering, i.e. {{::variable}}
+  * NodeJS
+  * JWT, JSON Web Token, for auth. check
+  * Ruby-On-Rails like application dispatch using controller and action
+  * MVC pattern
   * Server-side templataing of `ng-if`, `ng-include`, and `ng-repeat`
+  * Decorative pattern layout generation
 
 Client-side
 -----------
 
-  * Not a single page app, but a muti-page web site
-    * it does not use ngRoute
-  * Role-based client-side auth. (https://github.com/allenhwkim/angularjs-auth)
-  * encrypted jwt token in localstorage
+  * Search engine friendly without using single page app
+  * Multi-page applicatoin
+  * It does not use ngRoute nor uiRoute
+  * Role-based client-side auth. 
+  * JWT token encrypted into sessionStorage
+  * Custom directives, [`ngd`](https://github.com/allenhwkim/angularjs-directives)
 
 Server Setup
 ------------
