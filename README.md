@@ -7,22 +7,16 @@ Server-side
 -----------
 
   * NodeJS and Express for web server
-
   * Configurable MongoDB and Mongoose for database
-
-  * WebSocket for communication between pages
-    * i.e. "logged out successfully" as user message
-
   * JWT, JSON Web Token, for security check
+  * Server-side templataing of `ng-if`, `ng-include`, and `ng-repeat`
 
 Client-side
 -----------
 
   * Not a single page app, but a muti-page web site
     * it does not use ngRoute
-
   * Role-based client-side auth. (https://github.com/allenhwkim/angularjs-auth)
-
   * encrypted jwt token in localstorage
 
 Server Setup
@@ -40,3 +34,6 @@ Server Setup
   * Configure the application
     * `$ cp config/config.js.example config/config.js`
     * `$ vim config/config.js`
+
+  * Run server
+    * `$ scripts/server`
