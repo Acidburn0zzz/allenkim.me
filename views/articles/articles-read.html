@@ -1,0 +1,22 @@
+<head>
+  <style>
+    pre[ngd-markdown-preview] {
+      font-family: inherit;
+      white-space: normal;
+      font-size: inherit;
+    }
+  </style>
+</head>
+<br/>
+  Actions:
+  <a href="/articles/{{::article._id}}/update">Edit</a>
+  <a href="/">List</a> 
+  <a href="/articles/{{::article._id}}/destroy">Delete</a> 
+<br/>
+<br/>
+<pre ngd-markdown-preview id="mp1">{{::article.body}}</pre>
+<div>
+  <div>Created At:{{::article.createdAt}} </div> 
+  <div>Updated At: {{::article.updatedAt}} </div>
+  <div>Type: {{::article.type}} </div>
+</div>

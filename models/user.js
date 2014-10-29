@@ -13,7 +13,8 @@ var User = {
   find: function(username, password) {
     for (var i=0; i<users.length; i++) {
       var user = users[i];
-      if (user.username == md5(username) && user.password == md5(password)) {
+      if (user.username == md5(username||"") && 
+          user.password == md5(password||"")) {
         return user;
       }
     }

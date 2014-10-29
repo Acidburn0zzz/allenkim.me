@@ -1,5 +1,5 @@
 var app = angular.module('app', [
-  'ngSanitize',    // to show converted markdown html safely
+//  'ngSanitize',    // to show converted markdown html safely
   'angularjsAuth', // for role-based auth.
                    //   . it sets $rootScope.Auth 
                    //   . it sets header, 'x-access-token', for all http request

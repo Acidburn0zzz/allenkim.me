@@ -1,10 +1,5 @@
 <head>
   <script src="/static/articles/articles-update-controller.js"></script>
-  <script src="/static/js/lib/angularjs-directives/ngd-auto-height.js"></script>
-  <script src="/static/js/lib/angularjs-directives/ngd-image-drop.js"></script>
-  <script src="/static/js/lib/angularjs-directives/ngd-image-paste.js"></script>
-  <script src="/static/js/lib/angularjs-directives/ngd-image-preview.js"></script>
-  <script src="/static/js/lib/angularjs-directives/ngd-markdown-preview.js"></script>
   <ngd-script src="/articles/{{::article._id}}.json" scope-var="article"></ngd-script>
   <style>
     .dragover {background: green}
@@ -12,14 +7,17 @@
 </head>
 
 <div ng-controller="ArticlesUpdateController">
+  <br/>
   Actions:
   <a href="/articles/{{::article._id}}">Show</a>
-  <a href="/" class="btn btn-default">List</a> 
+  <a href="/">List</a> 
   <a href="/articles/{{::article._id}}/destroy">Delete</a> 
+  <br/>
+  <br/>
   <form novalidate name="form" ng-submit="save()" ngd-form-unsaved>
     <div id="tabs" ng-init="tab='edit'">
-      <a href="" class="tab" ng-click="tab='edit'">Edit</a>
-      <a href="" class="tab" ng-click="preview()">Preview</a>
+      <a href="" ng-click="tab='edit'">Edit</a>
+      <a href="" ng-click="preview()">Preview</a>
     </div>
     <div ng-show="tab=='edit'">
       <textarea name="body" autofocus required wrap="off" cols="80" rows="10"

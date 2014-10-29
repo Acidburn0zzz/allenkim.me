@@ -1,6 +1,7 @@
 var fs = require('fs');
 var AngularTemplate = require('angular-template');
 var config = require('../config/config.js');
+var debug = debug || 0;
 
 var baseDir = config.baseDir;
 if (!baseDir) { throw "Invalid base directory defined"; }
@@ -57,7 +58,7 @@ var get1stFileExists = function(paths, options) {
       var regExp = new RegExp(':'+key, 'g');
       path = path.replace(regExp, options[key]);
     }
-    console.log('path', path);
+    debug && console.log('path', path);
     if (fs.existsSync(path)) {
       return path;
     }
@@ -123,14 +124,14 @@ var ApplicationController = function(options) {
         options.view && (searchContext.filename = options.view);
         contentsFile = get1stFileExists(context.viewPaths, searchContext);
         if (!contentsFile) { 
-          console.log('searchContext', searchContext);
+          debug && console.log('searchContext', searchContext);
           throw "Cannot find view file from view paths"; 
         }
 
         searchContext = {filename: (options.layout || context.layout)};
         layoutFile   = get1stFileExists(context.viewPaths, searchContext);
         if (!layoutFile) { 
-          console.log('searchContext', searchContext);
+          debug && console.log('searchContext', searchContext);
           throw "Cannot find layout file from view paths"; 
         }
 
@@ -159,7 +160,7 @@ var ApplicationController = function(options) {
      */
     var controller = require(config.baseDir +
         '/controllers/' + context.controller + '-controller.js');
-    console.log('context', context);
+    debug && console.log('context', context);
     controller[context.action].apply(this, [req, res]);
   }
 }

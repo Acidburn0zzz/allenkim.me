@@ -1,7 +1,7 @@
 angularjs-blog
 ==============
 
-AngularJS Blog
+MEAN-stacked AngularJS Blog
 
 Principle
 ---------
@@ -45,18 +45,18 @@ Client-side
 Server Setup
 ------------
 
-  * NodeJS and npm packages
-    * i.e. `$ sudo yum install nodejs npm`
-    * `$ npm install`
+  1. Download and Install
+    * `$ git clone https://github.com/allenhwkim/angularjs-blog.git`
+    * `$ cd angularjs-blog && npm install`
 
-  * MongoDB
-    * Only to use local database
+  2. Start MongoDB
     * Not required when you use MongoDB service, i.e. mongolab
-    $ To start it locally, `$ mongod --dbpath mongodb/data/db --fork --logpath mongodb/mongodb.log`
+    * To start local mongodb, run the following command   
+      `$ mongod --dbpath mongodb/data/db --fork --logpath mongodb/mongodb.log`
 
-  * Configure the application
+  3. Modify config.js file
     * `$ cp config/config.js.example config/config.js`
     * `$ vim config/config.js`
 
-  * Run server
+  4. Run server
     * `$ scripts/server`

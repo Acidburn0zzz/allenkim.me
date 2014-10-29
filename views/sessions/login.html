@@ -1,11 +1,18 @@
+<br/>
+Actions: <a href="/">List</a> 
+<br/>
+<br/>
 <div ng-controller="LoginController">
-  {{error}} <br/>
-  <form class="col-md-6">
+  <div>{{error}}</div>
+  <form>
+    <div>
     Username: 
-    <input ng-model="username" class="form-control" readonly="readonly"/>
+    <input ng-model="username" readonly="readonly"/>
+    </div>
+    <div>
     Password: 
-    <input ng-model="password"  class="form-control"/> 
-    <input type="submit" class="btn btn-default" ng-click="login()">
+    <input ng-model="password" placeholder="adminpass"/> 
+    </div>
+    <input type="submit" ng-click="login()">
   </form>
 </div>
-

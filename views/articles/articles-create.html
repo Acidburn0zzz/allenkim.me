@@ -1,22 +1,18 @@
 <head>
   <script src="/static/articles/articles-create-controller.js"></script>
-  <script src="/static/js/lib/angularjs-directives/ngd-auto-height.js"></script>
-  <script src="/static/js/lib/angularjs-directives/ngd-image-drop.js"></script>
-  <script src="/static/js/lib/angularjs-directives/ngd-image-paste.js"></script>
-  <script src="/static/js/lib/angularjs-directives/ngd-image-preview.js"></script>
-  <script src="/static/js/lib/angularjs-directives/ngd-markdown-preview.js"></script>
   <style>
     .dragover {background: green}
   </style>
 </head>
 
 <div ng-controller="ArticlesCreateController">
-  Actions:
-  <a href="/" class="btn btn-default">List</a> 
+  <br/>
+  Actions: <a href="/">List</a> <br/>
+  <br/>
   <form novalidate name="form" ng-submit="save()" ngd-form-unsaved>
     <div id="tabs" ng-init="tab='edit'">
-      <a href="" class="tab" ng-click="tab='edit'">Edit</a>
-      <a href="" class="tab" ng-click="preview()">Preview</a>
+      <a href="" ng-click="tab='edit'">Edit</a>
+      <a href="" ng-click="preview()">Preview</a>
     </div>
     <div ng-show="tab=='edit'">
       <textarea name="body" autofocus required wrap="off" cols="80" rows="10"
