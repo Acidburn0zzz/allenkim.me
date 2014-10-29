@@ -3,7 +3,7 @@ var User = require(config.baseDir + "/models/user.js");
 var Auth = require(config.baseDir + "/models/auth.js");
 var errorFunc = function(err, res) {
   res.send(500, {error: err});
-}
+};
 
 var SessionsController = {
 
@@ -12,8 +12,8 @@ var SessionsController = {
       var html = res.getHtml({view:'login.html'});
       res.send(200, html);
     } else {
-      var username = req.params.username || req.query.username || req.body.username || '';
-      var password = req.params.password || req.query.password || req.body.password || '';
+      var username = req.param('username');
+      var password = req.param('password');
       var user = User.find(username, password);
       if (user) {
         var token = Auth.getToken(user);

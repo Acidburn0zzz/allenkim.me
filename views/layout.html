@@ -4,15 +4,16 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <script src="/static/js/lib/html5shiv/html5shiv.js"></script>
     <script src="/static/js/lib/respond/respond.src.js"></script>
-    <script src="/static/js/lib/angularjs/1.3.0/angular.min.js"></script>
-    <script src="/static/js/lib/angularjs/1.3.0/angular-sanitize.min.js"></script>
+    <script src="/static/js/lib/angularjs/1.3.0/angular.js"></script>
+    <script src="/static/js/lib/angularjs/1.3.0/angular-sanitize.js"></script>
+    <script src="/static/js/lib/angularjs/1.3.0/angular-cookies.js"></script>
     <script src="/static/js/lib/markdown/Markdown.Converter.js"></script>
     <script src="/static/js/lib/angularjs-auth.js"></script>
     <script src="/static/js/lib/angularjs-directives/ngd-script.js"></script>
     <script src="/static/js/lib/angularjs-directives/ngd-flash.js"></script>
     <script src="/static/js/app.js"></script>
     <script src="/static/sessions/login-controller.js"></script>
-    <sitemesh:write property='head'/>
+    <contents-html tag='head'/>
   </head>
 
   <body>
@@ -20,7 +21,7 @@
     <div class="text-right">
       <div ng-include="'/static/sessions/login-status.html'"></div>
     </div>
-    <sitemesh:write property='body'/>
+    <contents-html tag='body'/>
   </body>
 </html>
 

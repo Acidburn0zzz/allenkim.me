@@ -1,6 +1,6 @@
 var fs = require('fs');
+var AngularTemplate = require('angular-template');
 var config = require('../config/config.js');
-var SiteMeshLayout = require(config.baseDir + '/lib/sitemesh-layout.js');
 
 var baseDir = config.baseDir;
 if (!baseDir) { throw "Invalid base directory defined"; }
@@ -48,17 +48,6 @@ var setAction = function(req, options) {
 };
 
 /**
- * Simple AngularJS server-side template engine
- * compile template html to replace bind once expression `{{::VARIABLE}}` to the actual values
- */
-var getCompiledHtml = function(templateHtml, options) {
-  var compiledHtml = templateHtml.replace(/{{::([^}]+)}}/g, function(_, expr) {
-    return eval("options."+expr);
-  });
-  return compiledHtml;
-};
-
-/**
  * find the first file existing from paths with options in mind
  */
 var get1stFileExists = function(paths, options) {
@@ -99,8 +88,9 @@ var getContext = function(req) {
   context.viewPaths = [
     config.baseDir+'/views/:filename',
     config.baseDir+'/views/:controller/:filename',
-    config.baseDir+'/views/:controller/:action.html',
     config.baseDir+'/views/:controller/:action/:filename.html',
+    config.baseDir+'/views/:controller/:action.html',
+    config.baseDir+'/views/:controller/:controller-:action.html',
     config.baseDir+'/views/:controller/:action/:controller-:action.html'
   ];
   return context;
@@ -147,14 +137,17 @@ var ApplicationController = function(options) {
         delete options.layout;
         delete options.view;
 
-        var contentsHtml = fs.readFileSync(contentsFile, 'utf8');
-        contentsHtml = getCompiledHtml(contentsHtml, options);
+        var template = AngularTemplate({
+          basePath: config.baseDir,
+          layout: layoutFile
+        });
 
-        var layoutHtml = fs.readFileSync(layoutFile, 'utf8');
-        var sitemeshLayout = new SiteMeshLayout(layoutHtml);
-        var compiledHtml = sitemeshLayout.compile(contentsHtml);
+        var contentsHtml = fs.readFileSync(contentsFile, 'utf8');
+        var compiledHtml = template.compile(contentsHtml, options);
+
         return compiledHtml;
       } catch (e) {
+        console.error(e.stack);
         console.error(e);
         console.trace(e);
         res.send(500, e);

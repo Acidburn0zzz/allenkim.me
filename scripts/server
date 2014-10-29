@@ -10,6 +10,8 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var fs = require('fs');
 var morgan = require('morgan');
+var cookieParser = require('cookie-parser')
+
 
 /**
  * Bootstrap db connection
@@ -48,6 +50,7 @@ fs.readdirSync(modelsDir).forEach(function (file) {
 /**
  * Web server Configuration
  */
+server.use(cookieParser());
 server.use(morgan('dev')); //combined, common, dev or short
 server.use(bodyParser({limit: '1mb'}));
 server.use(require('method-override')());
@@ -67,12 +70,13 @@ server.get('/', appCtrl({controller:'articles', action: 'list'}));
 server.get('/login', appCtrl({controller:'sessions', action:'create'}));
 server.post('/login', appCtrl({controller:'sessions'}));
 
-server.get('/:controller.:format?', appCtrl());
-server.get('/:controller/:id.:format?', appCtrl());
-server.get('/:controller/:id/:action', appCtrl());
-server.post('/:controller', auth.hasRole('admin'), appCtrl());
-server.put('/:controller/:id', auth.hasRole('admin'), appCtrl());
-server.delete('/:controller/:id', auth.hasRole('admin'), appCtrl());
+server.get('/:controller.:format?', appCtrl());     // list
+server.get('/:controller/create', auth.hasRole('admin'), appCtrl({action:'create'}));      // GET: create
+server.get('/:controller/:id.:format?', appCtrl()); // show
+server.get('/:controller/:id/:action', auth.hasRole('admin'), appCtrl()); //GET: update, delete
+server.post('/:controller', auth.hasRole('admin'), appCtrl());            //POST: create
+server.put('/:controller/:id', auth.hasRole('admin'), appCtrl());         //PUT: update
+server.delete('/:controller/:id', auth.hasRole('admin'), appCtrl());      //DELETE: delete
 
 //server.get('/articles.:format?', appCtrl());
 //server.get('/articles/:id.:format?', appCtrl(), articlesCtrl.read);

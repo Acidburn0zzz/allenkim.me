@@ -3,6 +3,22 @@ angularjs-blog
 
 AngularJS Blog
 
+Principle
+---------
+
+  * Server-side / Client-side Seperation;
+
+      * Browser does not ask redirection to the server with posting data;
+          * create, update, delete requests are only posted using AJAX call.
+          * when received response, browser decide what to do; forward or error it.
+      * Server does not set client side properties; i.e. cookies, headers
+          * client make request to server using API
+          * when received response, browser decide to set it or not
+
+  * Search-Engine Friendliness
+      * Server-side AngularJS templating
+      * Server-side Layout support
+
 Server-side
 -----------
 
@@ -13,8 +29,8 @@ Server-side
   * JWT, JSON Web Token, for auth. check
   * Ruby-On-Rails like application dispatch using controller and action
   * MVC pattern
-  * Server-side templataing of `ng-if`, `ng-include`, and `ng-repeat`
-  * Decorative pattern layout generation
+  * Server-side AngularJS templating; `ng-if`, `ng-include`, and `ng-repeat`
+  * Layout support
 
 Client-side
 -----------

@@ -1,0 +1,10 @@
+<head>
+  <script src="/static/articles/articles-list-controller.js"></script>
+</head>
+
+<ul>
+  <li ng-repeat="article in articles" bind-once>
+    <a href="/articles/{{::article._id}}">{{::article.body.split("\n")[0]}}</a>
+  </li>
+</ul>
+<a href="/articles/create">Create</a>

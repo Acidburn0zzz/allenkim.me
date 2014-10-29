@@ -1,21 +1,18 @@
 <head>
-  <script src="/static/articles/update/articles-update-controller.js"></script>
+  <script src="/static/articles/articles-create-controller.js"></script>
   <script src="/static/js/lib/angularjs-directives/ngd-auto-height.js"></script>
   <script src="/static/js/lib/angularjs-directives/ngd-image-drop.js"></script>
   <script src="/static/js/lib/angularjs-directives/ngd-image-paste.js"></script>
   <script src="/static/js/lib/angularjs-directives/ngd-image-preview.js"></script>
   <script src="/static/js/lib/angularjs-directives/ngd-markdown-preview.js"></script>
-  <ngd-script src="/articles/{{::article._id}}.json" scope-var="article"></ngd-script>
   <style>
     .dragover {background: green}
   </style>
 </head>
 
-<div ng-controller="ArticlesUpdateController">
+<div ng-controller="ArticlesCreateController">
   Actions:
-  <a href="/articles/{{::article._id}}">Show</a>
   <a href="/" class="btn btn-default">List</a> 
-  <a href="/articles/{{::article._id}}/destroy">Delete</a> 
   <form novalidate name="form" ng-submit="save()" ngd-form-unsaved>
     <div id="tabs" ng-init="tab='edit'">
       <a href="" class="tab" ng-click="tab='edit'">Edit</a>
@@ -28,8 +25,7 @@
         ngd-image-drop
         ngd-image-paste
         ng-model="article.body"
-        placeholder="Please enter {{::article.type}}, drop or paste image here">
-        {{::article.body}}
+        placeholder="Please enter {{article.type}}, drop or paste image here">
       </textarea>
     </div>
     <div ng-show="tab=='preview'" ngd-markdown-preview id="pv">
