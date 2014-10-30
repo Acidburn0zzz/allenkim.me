@@ -1,17 +1,13 @@
 LEAN
 ====
 
-It's not MEAN, it's LEAN
+Light-weight Express/Angular/Node Stack
 
-Light-Express-Angular-Node
-
-MongoDB dependency has been removed, but that does not mean you can't use MongoDB. 
+The main purpose of LEAN stack is to provide easy and light angular, express, and node server.
 
 It's originally developed using MongoDB, but later changed not to be dependent on that. To use MongoDB, you simply use different file in models directory, I.e., models/articles-mongo.js instead of "models/article.js"
 
-In default, it uses a single file named "db/articles.json" for its data storage. It's not a data base but a file which is a good fit for a single user and  especially blog data.
-
-The main point of LEAN stack is to provide easy and light angular, express, and node development to starters.
+In default, it uses a single file named "db/articles.json" for its data storage. It's a file which is a good fit for a single user and  especially blog data.
 
 
 Principle
