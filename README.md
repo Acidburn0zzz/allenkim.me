@@ -54,8 +54,8 @@ Setup
 
 1. Run the server
 
-  *. `$ git clone https://github.com/allenhwkim/lean.git`
-  *. `$ cd lean && npm install`
-  *. `$ scripts/server`
+  * `$ git clone https://github.com/allenhwkim/lean.git`
+  * `$ cd lean && npm install`
+  * `$ scripts/server`
 
-2. Access url, http://localhost:3000
+2. Open url, http://localhost:3000
