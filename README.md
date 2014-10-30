@@ -1,7 +1,18 @@
-angularjs-blog
-==============
+LEAN
+====
 
-MEAN-stacked AngularJS Blog
+It's not MEAN, it's LEAN
+
+Light-Express-Angular-Node
+
+MongoDB dependency has been removed, but that does not mean you can't use MongoDB. 
+
+It's originally developed using MongoDB, but later changed not to be dependent on that. To use MongoDB, you simply use different file in models directory, I.e., models/articles-mongo.js instead of "models/article.js"
+
+In default, it uses a single file named "db/articles.json" for its data storage. It's not a data base but a file which is a good fit for a single user and  especially blog data.
+
+The main point of LEAN stack is to provide easy and light angular, express, and node development to starters.
+
 
 Principle
 ---------
@@ -22,12 +33,10 @@ Principle
 Server-side
 -----------
 
-  * MongoDB
   * Express
-  * AngularJS Template Rendering, i.e. {{::variable}}
-  * NodeJS
+  * Node
   * JWT, JSON Web Token, for auth. check
-  * Ruby-On-Rails like application dispatch using controller and action
+  * Ruby-On-Rails like application dispatch with controller and action
   * MVC pattern
   * Server-side AngularJS templating; `ng-if`, `ng-include`, and `ng-repeat`
   * Layout support
@@ -35,28 +44,18 @@ Server-side
 Client-side
 -----------
 
-  * Search engine friendly without using single page app
-  * Multi-page applicatoin
+  * Search engine friendliness avoiding SPA, single page app
   * It does not use ngRoute nor uiRoute
   * Role-based client-side auth. 
-  * JWT token encrypted into sessionStorage
   * Custom directives, [`ngd`](https://github.com/allenhwkim/angularjs-directives)
 
-Server Setup
-------------
+Setup
+---------------
 
-  1. Download and Install
-    * `$ git clone https://github.com/allenhwkim/angularjs-blog.git`
-    * `$ cd angularjs-blog && npm install`
+1. Run the server
 
-  2. Start MongoDB
-    * Not required when you use MongoDB service, i.e. mongolab
-    * To start local mongodb, run the following command   
-      `$ mongod --dbpath mongodb/data/db --fork --logpath mongodb/mongodb.log`
+  *. `$ git clone https://github.com/allenhwkim/lean.git`
+  *. `$ cd lean && npm install`
+  *. `$ scripts/server`
 
-  3. Modify config.js file
-    * `$ cp config/config.js.example config/config.js`
-    * `$ vim config/config.js`
-
-  4. Run server
-    * `$ scripts/server`
+2. Access url, http://localhost:3000

@@ -148,9 +148,8 @@ var ApplicationController = function(options) {
 
         return compiledHtml;
       } catch (e) {
-        console.error(e.stack);
         console.error(e);
-        console.trace(e);
+        console.error(e.stack);
         res.send(500, e);
       }
     }

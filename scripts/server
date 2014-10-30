@@ -1,51 +1,14 @@
 #!/bin/env node
-/**
- * Module dependencies.
- */
 var env = process.env.NODE_ENV || 'development';
 var config = require('../config/config.js');
 var express = require('express');
 var server = express();
 var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
 var fs = require('fs');
 var morgan = require('morgan');
 var cookieParser = require('cookie-parser')
 
-
-/**
- * Bootstrap db connection
- */
-var options = {
-  server: {
-    socketOptions: {
-      keepAlive: 1, 
-      connectTimeoutMS: 5000  // require some time to upload an image
-    }
-  }, 
-  db: {
-    native_parse: true
-  }
-};
-mongoose.connection.on('connected', function() {   // When connected
-  console.log("connected to",  config.db);
-});
-mongoose.connection.on('error', function(err) {   // Error handler
-  console.log(err);
-});
-mongoose.connection.on('disconnected', function () { // Reconnect when closed
-  console.log('mongodb', config.db, 'is disconnected. connecting again');
-  mongoose.connect(config.db, options);
-});
-
-
-/**
- * bootstrap all models
- */
-var modelsDir = config.baseDir + "/models";
-fs.readdirSync(modelsDir).forEach(function (file) {
-  file.match(/.js$/) && require(modelsDir + '/' + file);
-});
+//require("../config/config-mongoose.js").init();
 
 /**
  * Web server Configuration
@@ -62,9 +25,6 @@ server.use('/static', express.static(config.baseDir + "/views"));
  */
 var auth = require(config.baseDir + "/models/auth.js"); 
 var appCtrl = require(config.baseDir + "/controllers/applications-controller.js");
-//var sessionsCtrl = require(config.baseDir + "/controllers/sessions-controller.js");
-//var imagesCtrl = require(config.baseDir + "/controllers/images-controller.js");
-//var articlesCtrl = require(config.baseDir + "/controllers/articles-controller.js");
 
 server.get('/', appCtrl({controller:'articles', action: 'list'}));
 server.get('/login', appCtrl({controller:'sessions', action:'create'}));
@@ -78,22 +38,9 @@ server.post('/:controller', auth.hasRole('admin'), appCtrl());            //POST
 server.put('/:controller/:id', auth.hasRole('admin'), appCtrl());         //PUT: update
 server.delete('/:controller/:id', auth.hasRole('admin'), appCtrl());      //DELETE: delete
 
-//server.get('/articles.:format?', appCtrl());
-//server.get('/articles/:id.:format?', appCtrl(), articlesCtrl.read);
-//server.get('/articles/:id/:action', appCtrl(), articlesCtrl.edit);
-//server.post('/articles', auth.hasRole('admin'), appCtrl(), articlesCtrl.create);
-//server.put('/articles/:id', auth.hasRole('admin'), articlesCtrl.update);
-//server.delete('/articles/:id', auth.hasRole('admin'), articlesCtrl.destroy);
-
-//server.post('/images', auth.hasRole('admin'), images.create);
-//server.get('/:controller/:id/:action', app.render);
-//server.get('/:controller/:id', app.render);
-//server.get('/:controller', app.render);
-
 /**
  * Start The Server
  */
 var port = process.env.PORT || 3000;
-mongoose.connect(config.db, options);
 server.listen(port);
 console.log('Express server listening on port ' + port );

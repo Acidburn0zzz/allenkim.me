@@ -35,10 +35,11 @@
     "entities": "^1.1.1",
     "express": "~4.0.0",
     "jwt-simple": "^0.2.0",
+    "lockfile": "^1.0.0",
     "method-override": "~1.0.0",
     "moment": "^2.8.3",
-    "mongoose": "~3.8.8",
     "morgan": "^1.4.1",
-    "multiparty": "~3.2.8"
+    "multiparty": "~3.2.8",
+    "q": "^1.0.1"
   }
 }

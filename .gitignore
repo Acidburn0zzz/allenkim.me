@@ -1,5 +1,2 @@
-nohup.out
-mongodb/*
 node_modules
-config/config.js
 view/images/*

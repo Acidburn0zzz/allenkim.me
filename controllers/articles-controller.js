@@ -1,7 +1,8 @@
 var fs = require('fs');
 var config = require('../config/config.js');
-var mongoose = require('mongoose');
-var Article = mongoose.model('Article');
+//var mongoose = require('mongoose');
+//var Article = mongoose.model('Article');
+var Article = require(config.baseDir + "/models/article.js");
 
 var ArticlesController = {
 
