@@ -23,11 +23,6 @@
   "license": "MIT",
   "readmeFilename": "README.md",
   "gitHead": "432a4074af7f1a0693ca2ef980bbb18eabfe0814",
-  "devDependencies": {
-    "gulp-jade": "~0.4.2",
-    "gulp": "~3.6.0",
-    "errorhandler": "~1.0.0"
-  },
   "dependencies": {
     "angular-template": "^0.1.1",
     "body-parser": "~1.0.1",
