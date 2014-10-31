@@ -18,6 +18,7 @@ server.use(morgan('dev')); //combined, common, dev or short
 server.use(bodyParser({limit: '1mb'}));
 server.use(require('method-override')());
 server.use('/favicon.ico', express.static(config.baseDir + "/views"));
+server.use('/static/images', express.static(config.baseDir + "/db/images"));
 server.use('/static', express.static(config.baseDir + "/views"));
 
 /**

@@ -1,4 +1,5 @@
 <head>
+  <script src="/static/articles/image.js"></script>
   <script src="/static/articles/articles-update-controller.js"></script>
   <ngd-script src="/articles/{{::article._id}}.json" scope-var="article"></ngd-script>
   <style>
@@ -34,5 +35,5 @@
     </div>
     <input type="submit" ng-disabled="!form.$valid" value="Save" /> 
   </form>
-  <div ngd-image-preview ngd-image-preview-height="60"></div>
+  <div ngd-image-preview height="60"></div>
 </div>

@@ -4,6 +4,8 @@ var config = {
   baseDir: path.normalize(__dirname + "/.."),
   layout: 'layout.html'
 }
+config.imageDir = config.baseDir + "/views/images";
+
 // for mongoose, add db as 'mongodb://host:port/database'
 // i.e. {db: 'mongodb://user:password@localhost:27017/development'}
 var environments = {
