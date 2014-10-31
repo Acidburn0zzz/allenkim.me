@@ -1,10 +1,9 @@
 {
-  "name": "articles",
-  "version": "0.2.1",
-  "description": "articles management with markdown",
+  "name": "lean",
+  "version": "0.3.0",
+  "description": "light-weight angular express node blog",
   "main": "index.js",
   "directories": {
-    "example": "examples",
     "test": "test"
   },
   "scripts": {
@@ -15,7 +14,7 @@
     "url": "https://github.com/allenhwkim/articles.git"
   },
   "keywords": [
-    "articles",
+    "blog",
     "markdown",
     "angularjs"
   ],
