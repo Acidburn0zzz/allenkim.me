@@ -3,16 +3,12 @@ Actions: <a href="/">List</a>
 <br/>
 <br/>
 <div ng-controller="LoginController">
-  <div>{{error}}</div>
-  <form>
-    <div>
-    Username: 
-    <input ng-model="username" readonly="readonly"/>
-    </div>
-    <div>
-    Password: 
-    <input ng-model="password" placeholder="adminpass"/> 
-    </div>
-    <input type="submit" ng-click="login()">
+  <form style="padding: 20px">
+    <div class="red">{{error}}</div>
+    <md-text-float label="Username" ng-model="username"  readonly="readonly"/>
+    </md-text-float>
+    <md-text-float label="Password" ng-model="password" type="password"/>
+    </md-text-float>
+    <md-button class="md-primary md-raised" type="submit" ng-click="login()">Submit</md-button>
   </form>
 </div>

@@ -1,25 +1,124 @@
 <!DOCTYPE html>
 <html ng-app="app">
-  <head>
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <script src="/static/js/lib/html5shiv/html5shiv.js"></script>
-    <script src="/static/js/lib/respond/respond.src.js"></script>
-    <script src="/static/js/lib/markdown/Markdown.Converter.js"></script>
-    <script src="/static/js/lib/angularjs/1.3.0/angular.js"></script>
-    <script src="/static/js/lib/angularjs/1.3.0/angular-cookies.js"></script>
-    <script src="/static/js/lib/angularjs-auth.js"></script>
-    <script src="/static/js/lib/ngd.js"></script>
-    <script src="/static/js/app.js"></script>
-    <contents-html tag='head'/>
-  </head>
+<head>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <script src="/static/js/lib/html5shiv/html5shiv.js"></script>
+  <script src="/static/js/lib/respond/respond.src.js"></script>
+  <script src="/static/js/lib/markdown/Markdown.Converter.js"></script>
+  <script src="/static/bower_components/angular/angular.js"></script>
+  <script src="/static/bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="/static/js/lib/angularjs-auth.js"></script>
+  <script src="/static/js/lib/ngd.js"></script>
+  <script src="/static/js/app.js"></script>
 
-  <body>
-    <div ngd-flash></div>
-    <div>
-      <script src="/static/sessions/login-controller.js"></script>
-      <div ng-include="'/static/sessions/login-status.html'"></div>
+  <!-- angular material design -->
+  <link href="/static/bower_components/angular-material/angular-material.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/bower_components/angular-material/themes/orange-theme.css">
+  <!-- link rel="stylesheet" href="/static/bower_components/angular-material/themes/indigo-theme.css" -->
+  <!-- link rel="stylesheet" href="/static/bower_components/angular-material/themes/green-theme.css" -->
+  <script src="/static/bower_components/angular-aria/angular-aria.js"></script>
+  <script src="/static/bower_components/angular-animate/angular-animate.js"></script>
+  <script src="/static/bower_components/hammerjs/hammer.js"></script>
+  <script src="/static/bower_components/angular-material/angular-material.js"></script>
+  <!-- end -->
+
+  <script type="text/javascript" src="/static/js/lib/bubbles-background.js"></script>
+
+  <style>
+    .shadow {
+      box-shadow: 5px 5px 5px 0px rgba(136,136,136,0.5);
+    }
+    .red { color: red; }
+    .green { color: green; }
+    html, body {
+      width: 100%; height: 100%;
+    }
+    body {
+      background-color: transparent;
+    }
+    canvas#background {
+      position:fixed;
+      background-color : #8ad1dd;
+      z-index: -1;
+      left:0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+    #login-status {
+      min-height: 2em;
+    }
+    #contents {
+      max-width: 800px;
+      width: 100%;
+      min-height: 100%;
+      overflow: auto;
+    }
+    #contents {
+    }
+    #contents header, #contents section, #contents footer{
+      margin: 5px;
+    }
+    #contents > header {
+      background: transparent;
+    }
+    #contents > header > div {
+      background-color: #fff;
+      padding: 10px;
+      border-radius: 5px 0 0 5px;
+    }
+    #contents > header > div#login-status {
+      border-radius: 0 5px 5px 0;
+    }
+    #contents > section {
+      background-color: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      min-height: 50%;
+    }
+    #contents footer {
+      background-color: rgba(255,255,255, 0.8);
+      padding: 10px;
+      border-radius: 5px;
+      text-align: right;
+      font-size: 0.9em;
+    }
+    md-button.md-fab > a {
+      line-height: 49px; // 56(height)-12(padding)+5(margin)
+    }
+  </style>
+  <contents-html tag='head'></contents-html>
+</head>
+
+<body md-theme="orange">
+  <div layout layout-align="center">
+    <div id="contents" layout="vertical">
+      <header layout>
+        <div flex>
+          <h1> Allen Kim's Tech. Note</h1>
+          The Best Programming Is, No Programming.
+        </div>
+        <div id="login-status">
+          <div ng-include="'/static/sessions/login-status.html'"></div>
+        </div>
+      </header>
+
+      <section class="shadow" flex>
+        <div ngd-flash class="green"></div>
+        <contents-html tag='body'></contents-html>
+        <div style="clear:both"><div>
+      </section>
+
+      <footer>
+        &copy; 2014 Allen Kim.
+        This page is developed with <a href="https://github.com/allenhwkim/lean">LEAN</a> framework
+        and <a href="https://material.angularjs.org">Angular Material Design</a>.
+      </footer>
     </div>
-    <contents-html tag='body'/>
-  </body>
+  </div>
+  <script src="/static/sessions/login-controller.js"></script>
+  <canvas id="background">canvas background</canvas>
+  <script>BubblesBackground("canvas#background");</script>
+</body>
 </html>
 
