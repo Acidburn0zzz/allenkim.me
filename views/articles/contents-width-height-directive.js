@@ -6,8 +6,8 @@ app.directive('contentsWidthHeight', [function() {
       width = Math.max(width, 20);
 
       var height = Math.floor(Math.min(len/100, 3));
-      height = (height || 1) * 5;
-      var css = {minWidth: width+"%", minHeight: height+"em"};
+      height = (height || 1) * 50;
+      var css = {minWidth: width+"%", minHeight: height+"px"};
       console.log('css', css);
       element.css(css);
     }

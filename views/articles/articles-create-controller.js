@@ -14,7 +14,7 @@ app.controller('ArticlesCreateController',
 
     $scope.preview = function() {
       $scope.tab = 'preview';
-      $scope.previewMarkdown("pv", $scope.article.body);
+      $scope.convertMarkdown("pv", $scope.article.body);
     };
 
     var insertImageTag = function(urls) {

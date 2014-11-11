@@ -24,41 +24,65 @@ var updateJSONFile = function(data, callback) {
 };
 
 var Article = function(params) {
-  this.props = {
-    _id: Date.now(),
-    body: '',
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString() 
-  };
-  var errors = {};
-
+  this._id = Date.now();
+  this.body = '';
+  this.createdAt = new Date().toISOString();
   // set properties
   for (var key in params) {
-    this.props[key] = params[key];
+    this[key] = params[key];
   }
-
-  this.validate = function() {
-    (!this.props.type) && (errors.type = "Article type cannot be blank");
-    (!this.props.body) && (errors.body = "Article body cannot be blank");
-    return Object.keys(errors).length===0;
-  };
-
-  this.save = function(handler) {
-    var all = Article.all();
-    all[this.props._id] = this.props;
-    all[this.props._id].updatedAt = new Date().toISOString(); 
-    if (!this.validate) {
-      throw "Validation Error on "+Object.keys(this.errors);
-    } else {
-      updateJSONFile(all, handler);
-    }
-  };
 };
 
+Article.prototype.propertyKeys= ["_id", "body", "createdAt", "updatedAt"];
+
+Article.prototype.validate = function() {
+  this.errors = {};
+  (!this.type) && (this.errors.type = "Article type cannot be blank");
+  (!this.body) && (this.errors.body = "Article body cannot be blank");
+  return Object.keys(this.errors).length===0;
+};
+
+Article.prototype.getProperties = function() {
+  var properties = {};
+  for (var i=0; i< this.propertyKeys.length; i++) {
+    var key = this.propertyKeys[i];
+    properties[key] = this[key];
+  }
+  return properties;
+};
+
+Article.prototype.save = function(handler) {
+  var all = Article.all();
+  all[this._id] = this.getProperties();
+  all[this._id].updatedAt = new Date().toISOString(); 
+  if (!this.validate) {
+    throw "Validation Error on "+Object.keys(this.errors);
+  } else {
+    updateJSONFile(all, handler);
+  }
+};
+
+Article.prototype.getSummary = function() {
+  var summary = this.body;
+  summary = summary.replace(/(.*?)[\r\n]/,""); // remove title part
+  summary = summary.replace(/<(.*?)>/g,"");    // remove all tags
+  summary = summary.replace(/[\=\-\#\*]/g,""); // remove markdown chars
+  if (summary.length > 239) {
+    return summary.trim().slice(0,239) + ' ...';
+  }  else {
+    return summary.trim();
+  }
+};
 
 Article.all = function() {
   var txt = fs.readFileSync(articleJSON, 'utf8');
-  return JSON.parse(txt);
+  var all = JSON.parse(txt);
+  var articles = {};
+  for (var key in all) {
+    articles[key] = new Article(all[key]);
+  }
+  console.log('articles', articles);
+  return articles;
 };
 
 // currently only support body matching

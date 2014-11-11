@@ -1,22 +1,22 @@
-<head>
-  <style>
-    pre[ngd-markdown-preview] {
-      font-family: inherit;
-      white-space: normal;
-      font-size: inherit;
-    }
-  </style>
-</head>
-<br/>
-  Actions:
-  <a href="/articles/{{::article._id}}/update">Edit</a>
-  <a href="/">List</a> 
-  <a href="/articles/{{::article._id}}/destroy">Delete</a> 
-<br/>
-<br/>
-<pre ngd-markdown-preview id="mp1">{{::article.body}}</pre>
-<div>
+<div layout layout-align="space-between">
   <div>Created At:{{::article.createdAt}} </div> 
   <div>Updated At: {{::article.updatedAt}} </div>
   <div>Type: {{::article.type}} </div>
+</div>
+
+<pre class="paper margin-0" ngd-markdown-preview id="mp1">{{::article.body}}</pre>
+
+<div layout layout-align="end">
+  <md-button href="/articles/{{::article._id}}/update" class="md-fab margin-5">
+    <md-tooltip>Update This Article </md-tooltip>
+    <md-icon icon="http://google.github.io/material-design-icons/image/svg/ic_edit_24px.svg"></md-icon>
+  </md-button>
+  <md-button href="/articles" class="md-fab margin-5">
+    <md-tooltip>List All Articles </md-tooltip>
+    <md-icon icon="http://google.github.io/material-design-icons/action/svg/ic_list_24px.svg"></md-icon>
+  </md-button>
+  <md-button href="/articles/{{::article._id}}/destroy" class="md-fab margin-5">
+    <md-tooltip>Delete This Article </md-tooltip>
+    <md-icon icon="http://google.github.io/material-design-icons/content/svg/ic_clear_24px.svg"></md-icon>
+  </md-button>
 </div>
