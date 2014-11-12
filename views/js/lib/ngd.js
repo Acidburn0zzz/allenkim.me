@@ -299,8 +299,8 @@ NGD.directive('ngdMarkdownPreview', function() {
       var converter = new Markdown.Converter();
       element[0].convert = function(markdown) {
         markdown = markdown || element.html();
-        console.log('markdown', markdown);
         var html = converter.makeHtml(markdown);
+        html = html.replace(/amp;/g,"");
         element.html(html);
       };
 

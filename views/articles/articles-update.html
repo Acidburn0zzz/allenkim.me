@@ -28,7 +28,7 @@
       <a href="" ng-class="{paper: tab == 'edit'}" ng-click="tab='edit'">Edit</a>
       <a href="" ng-class="{paper: tab == 'preview'}" ng-click="preview()">Preview</a>
       <div flex layout layout-align="end">
-        <md-button class="md-primary md-raised" type="submit" ng-disabled="!form.$valid" /> 
+        <md-button aria-label="save" class="md-primary md-raised" type="submit" ng-disabled="!form.$valid" /> 
           <md-tooltip>Save This Article</md-tooltip>
           <md-icon icon="http://google.github.io/material-design-icons/content/svg/ic_save_24px.svg"></md-icon>
         </md-button>
@@ -54,15 +54,15 @@
   </form>
   <div class="paper" ngd-image-preview height="60"></div>
   <div layout layout-align="end">
-    <md-button href=""/articles/{{::article._id}}"" class="md-fab margin-5">
+    <md-button aria-label="read" href=""/articles/{{::article._id}}"" class="md-fab margin-5">
       <md-tooltip>Read This Article</md-tooltip>
       <md-icon icon="http://google.github.io/material-design-icons/maps/svg/ic_local_library_24px.svg"></md-icon>
     </md-button>
-    <md-button href="/articles" class="md-fab margin-5">
+    <md-button aria-label="list" href="/articles" class="md-fab margin-5">
       <md-tooltip>List All Articles </md-tooltip>
       <md-icon icon="http://google.github.io/material-design-icons/action/svg/ic_list_24px.svg"></md-icon>
     </md-button>
-    <md-button href="/articles/{{::article._id}}/destroy" class="md-fab margin-5">
+    <md-button aria-label="delete" href="/articles/{{::article._id}}/destroy" class="md-fab margin-5">
       <md-tooltip>Delete This Articles </md-tooltip>
       <md-icon icon="http://google.github.io/material-design-icons/action/svg/ic_delete_24px.svg"></md-icon>
     </md-button>

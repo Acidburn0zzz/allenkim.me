@@ -3,6 +3,7 @@ var config = require('../config/config.js');
 var q = require('q');
 var lockFile = require('lockfile');
 var articleJSON = config.baseDir + "/db/articles.json";
+var debug = debug || 0;
 
 var updateJSONFile = function(data, callback) {
   lockFile.lock('articles.lock', function(err) {
@@ -26,6 +27,10 @@ var updateJSONFile = function(data, callback) {
 var Article = function(params) {
   this._id = Date.now();
   this.body = '';
+  this.fbId = null;
+  this.liId = null;
+  this.twId = null;
+  this.tbId = null;
   this.createdAt = new Date().toISOString();
   // set properties
   for (var key in params) {
@@ -81,7 +86,7 @@ Article.all = function() {
   for (var key in all) {
     articles[key] = new Article(all[key]);
   }
-  console.log('articles', articles);
+  debug && console.log('articles', articles);
   return articles;
 };
 

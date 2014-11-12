@@ -6,7 +6,7 @@
 <div ng-controller="ArticlesDestroyController">
   <div layout layout-align="center center">
     <h2>Are you sure to delete this?</h2>
-    <md-button class="md-primary md-raised margin-5" ng-click="destroy()">
+    <md-button aria-label="confirm" class="md-primary md-raised margin-5" ng-click="destroy()">
       Yes, I am sure.
     </md-button>
   </div>
@@ -17,11 +17,11 @@
   </div>
   <pre class="paper" ngd-markdown-preview>{{::article.body}}</pre>
   <div layout layout-align="end">
-    <md-button href="/articles/{{::article._id}}/update" class="md-fab margin-5">
+    <md-button aria-label="update" href="/articles/{{::article._id}}/update" class="md-fab margin-5">
       <md-tooltip>Update This Article </md-tooltip>
       <md-icon icon="http://google.github.io/material-design-icons/image/svg/ic_edit_24px.svg"></md-icon>
     </md-button>
-    <md-button href="/articles" class="md-fab margin-5">
+    <md-button aria-label="list" href="/articles" class="md-fab margin-5">
       <md-tooltip>List All Articles </md-tooltip>
       <md-icon icon="http://google.github.io/material-design-icons/action/svg/ic_list_24px.svg"></md-icon>
     </md-button>

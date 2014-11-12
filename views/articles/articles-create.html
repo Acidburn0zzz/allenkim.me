@@ -27,7 +27,7 @@
       <a href="" ng-class="{paper: tab == 'edit'}" ng-click="tab='edit'">Edit</a>
       <a href="" ng-class="{paper: tab == 'preview'}" ng-click="preview()">Preview</a>
       <div flex layout layout-align="end">
-        <md-button class="md-primary md-raised margin-5" type="submit" ng-disabled="!form.$valid" /> 
+        <md-button aria-label="save" class="md-primary md-raised margin-5" type="submit" ng-disabled="!form.$valid" /> 
           <md-tooltip>Save This Article</md-tooltip>
           Save
         </md-button>
@@ -50,7 +50,7 @@
     </div>
 
     <div layout layout-align="end">
-      <md-button href="/articles" class="md-fab margin-5">
+      <md-button aria-label="list" href="/articles" class="md-fab margin-5">
         <md-tooltip>List All Articles </md-tooltip>
         <md-icon icon="http://google.github.io/material-design-icons/action/svg/ic_list_24px.svg"></md-icon>
       </md-button>
