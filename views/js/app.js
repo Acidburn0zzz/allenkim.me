@@ -13,4 +13,5 @@ app.config(function($httpProvider) {
 
 app.run(function($rootScope, $window) {
   $rootScope.location = $window.location;
+  $rootScope.rand = Math.floor(Math.random()*1000000);
 });

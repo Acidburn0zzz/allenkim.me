@@ -69,9 +69,24 @@ canvas#background {
   overflow: auto;
 }
 #contents > header {
-  background-image: url(/static/images/bg1.jpg);
-  background-repeat: no-repeat;
+  position: relative;
+  border:1px solid rgba(255,255,255,0.5);
 }
+#contents > header:before {
+  background-image: url(/static/images/bg1.jpg);
+  content:"";
+  display: block;
+  position: absolute;
+  top:0;left:0;right:0;bottom:0;
+  z-index: -2;
+  -webkit-filter: blur(2px);
+  -moz-filter: blur(2px);
+  -o-filter: blur(2px);
+  -ms-filter: blur(2px);
+  filter: blur(2px);
+  border-radius: 0.5rem;
+}
+
 #contents > header a {
   color: #fff;
 }
