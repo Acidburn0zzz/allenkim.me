@@ -12,6 +12,9 @@ a {
   text-decoration: none;
 }
 
+/**
+ * general classes
+ */
 .red { color: red; }
 .green { color: green; }
 .paper { box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.26); border: none; padding: 10px; background: #f8f8f8; }
@@ -24,6 +27,20 @@ a {
 .round-5  { border-radius: 0.5rem }
 .round-10  { border-radius: 1rem }
 .bg-white  { background-color: #fff }
+.text-shadow { text-shadow: 1px 1px 1px #000; }
+.fadeout {
+  background-color: transparent;
+  -webkit-animation: target-fade 3s 1;
+  -moz-animation: target-fade 3s 1;
+}
+@-webkit-keyframes target-fade {
+    0% { background-color: #fff; }
+    100% { background-color:transparent }
+}
+@-moz-keyframes target-fade {
+    0% { background-color: #fff; }
+    100% { background-color:transparent }
+}
 
 /**
  * layout-specific
@@ -50,6 +67,17 @@ canvas#background {
   width: 100%;
   min-height: 100%;
   overflow: auto;
+}
+#contents > header {
+  background-image: url(/static/images/bg1.jpg);
+  background-repeat: no-repeat;
+}
+#contents > header a {
+  color: #fff;
+}
+#contents > header > div {
+  color:#fff;
+  height:10em;
 }
 #contents > header > div #logo {
   width: 10rem;

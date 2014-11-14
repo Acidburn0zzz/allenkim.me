@@ -1,6 +1,7 @@
 <div ng-controller="LoginController">
   <div ng-if="Auth.isLoggedIn()">
-    Hello, {{Auth.get('username')}} <a href="" ng-click="logout()">Logout</a>
+    Hello, {{Auth.get('username')}} <br/>
+    <a href="" ng-click="logout()">Logout</a>
   </div>
   <div ng-if="!Auth.isLoggedIn()">
     <a href="/login?redir={{location.pathname}}">Login</a>

@@ -31,18 +31,21 @@
 <body md-theme="orange" ng-cloak>
   <div layout layout-align="center">
     <div id="contents" layout="vertical">
-      <header layout class="margin-5 bg-white round-5 padding-10">
-        <div flex>
-          <div layout="horizontal" layout-align="center center">
-            <img id="logo" float="left" src="/static/images/allen.kim.png" />
-            <div layout="vertical" layout-align="center center" layout-padding>
-              <h1 class="margin-0"> Allen Kim<b hide-only="sm">'s Tech. Note</b></h1>
-              <sub>The best programming is, No programming.</sub>
+      <header class="margin-5 round-5 text-shadow">
+        <div layout layout-align="center center" class="round-5"
+          ng-class="{fadeout: location.pathname=='/' || location.pathname=='/articles' }">
+          <div flex>
+            <div layout="horizontal" layout-align="center center">
+              <img id="logo" float="left" src="/static/images/allen.kim.png"/>
+              <div layout="vertical" layout-align="center center" layout-padding>
+                <h1 class="margin-0"> Allen Kim<b hide-only="sm">'s Tech. Note</b></h1>
+                <sub>The best programming is, No programming.</sub>
+              </div>
             </div>
           </div>
-        </div>
-        <div id="login-status" layout layout-align="center center">
-          <div ng-include="'/static/sessions/login-status.html'"></div>
+          <div id="login-status" layout layout-align="center center">
+            <div ng-include="'/static/sessions/login-status.html'"></div>
+          </div>
         </div>
       </header>
 
