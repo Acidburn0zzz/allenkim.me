@@ -25,13 +25,13 @@
   <script type="text/javascript" src="/static/js/lib/bubbles-background.js"></script>
   <link href="/static/css/common.css" rel="stylesheet" />
   <style>
-    #contents > header:before { background-image: url(/static/images/bg{{rand%2+1}}.jpg); }
+    #contents > header:before { background-image: url(/static/images/bg{{rand%3+1}}.jpg); }
   </style>
 
   <contents-html tag='head'></contents-html>
 </head>
 
-<body md-theme="orange" ng-cloak>
+<body md-theme="orange" ng-cloak class="background-mantle">
   <div layout layout-align="center">
     <div id="contents" layout="vertical">
       <header class="margin-5 round-5 text-shadow">
