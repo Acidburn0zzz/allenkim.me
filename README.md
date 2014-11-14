@@ -1,5 +1,5 @@
 To run the server
 
-  * `$ git clone https://github.com/allenhwkim/allenhwkim.com.git`
-  * `$ cd allenhwkim.com && npm install`
+  * `$ git clone https://github.com/allenhwkim/allenkim.me.git`
+  * `$ cd allenkim.me && npm install`
   * `$ scripts/server`
