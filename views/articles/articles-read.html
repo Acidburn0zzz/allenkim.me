@@ -1,13 +1,49 @@
-<div layout layout-align="space-between">
-  <div>Created At:{{::article.createdAt}} </div> 
-  <div>Updated At: {{::article.updatedAt}} </div>
-  <div>Type: {{::article.type}} </div>
-</div>
-
 <pre class="paper margin-0" ngd-markdown-preview id="mp1">{{::article.body}}</pre>
 
-<div layout layout-align="end">
-  <md-button aria-label="update" href="/articles/{{::article._id}}/update" class="md-fab margin-5">
+<div class="pull-left padding-5">
+  <a href="https://twitter.com/intent/tweet?text={{::article.getTitle()}}&url={{locationEncoded}}" target="_blank">
+    <md-tooltip>Share this article on Twitter</md-tooltip>
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-square-o fa-stack-2x"></i>
+      <i class="fa fa-twitter fa-stack-1x"></i>
+    </span>
+  </a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u={{locationEncoded}}" target="_blank">
+    <md-tooltip>Share this article on Facebook</md-tooltip>
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-square-o fa-stack-2x"></i>
+      <i class="fa fa-facebook fa-stack-1x"></i>
+    </span>
+  </a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url={{locationEncoded}}&title={{::article.getTitle()}}&summary={{::article.getSummary()}}"
+    target="_blank">
+    <md-tooltip>Share this article on LinkedIn</md-tooltip>
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-square-o fa-stack-2x"></i>
+      <i class="fa fa-linkedin fa-stack-1x"></i>
+    </span>
+  </a>
+  <a href="https://www.tumblr.com/share/link?url={{locationEncoded}}&name={{::article.getTitle()}}&description={{::article.getSummary()}}"
+    target="_blank">
+    <md-tooltip>Share this article on Tumblr</md-tooltip>
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-square-o fa-stack-2x"></i>
+      <i class="fa fa-tumblr fa-stack-1x"></i>
+    </span>
+  </a>
+  <a href="https://plus.google.com/share?url={{locationEncoded}}"
+    target="_blank">
+    <md-tooltip>Share this article on Google+</md-tooltip>
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-square-o fa-stack-2x"></i>
+      <i class="fa fa-google-plus fa-stack-1x"></i>
+    </span>
+  </a>
+  <small>updated {{::article.fromNow(scope.article.updatedAt)}}</small>
+</div>
+
+<div class="pull-right">
+  <md-button ng-if="Auth.isLoggedIn()" aria-label="update" href="/articles/{{::article._id}}/update" class="md-fab margin-5">
     <md-tooltip>Update This Article </md-tooltip>
     <md-icon icon="http://google.github.io/material-design-icons/image/svg/ic_edit_24px.svg"></md-icon>
   </md-button>
@@ -15,8 +51,9 @@
     <md-tooltip>List All Articles </md-tooltip>
     <md-icon icon="http://google.github.io/material-design-icons/action/svg/ic_list_24px.svg"></md-icon>
   </md-button>
-  <md-button aria-label="delete" href="/articles/{{::article._id}}/destroy" class="md-fab margin-5">
+  <md-button  ng-if="Auth.isLoggedIn()" aria-label="delete" href="/articles/{{::article._id}}/destroy" class="md-fab margin-5">
     <md-tooltip>Delete This Article </md-tooltip>
     <md-icon icon="http://google.github.io/material-design-icons/content/svg/ic_clear_24px.svg"></md-icon>
   </md-button>
 </div>
+

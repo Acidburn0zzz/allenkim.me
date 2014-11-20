@@ -10,13 +10,11 @@
       Yes, I am sure.
     </md-button>
   </div>
-  <div layout layout-align="space-between">
-    <div>Created At:{{::article.createdAt}} </div> 
-    <div>Updated At: {{::article.updatedAt}} </div>
-    <div>Type: {{::article.type}} </div>
-  </div>
   <pre class="paper" ngd-markdown-preview>{{::article.body}}</pre>
-  <div layout layout-align="end">
+  <div class="pull-left">
+    <small>updated {{::article.fromNow(scope.article.updatedAt)}}</small>
+  </div>
+  <div class="pull-right">
     <md-button aria-label="update" href="/articles/{{::article._id}}/update" class="md-fab margin-5">
       <md-tooltip>Update This Article </md-tooltip>
       <md-icon icon="http://google.github.io/material-design-icons/image/svg/ic_edit_24px.svg"></md-icon>

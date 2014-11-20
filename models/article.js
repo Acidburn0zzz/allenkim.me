@@ -4,6 +4,7 @@ var q = require('q');
 var lockFile = require('lockfile');
 var articleJSON = config.baseDir + "/db/articles.json";
 var debug = debug || 0;
+var moment = require('moment');
 
 var updateJSONFile = function(data, callback) {
   lockFile.lock('articles.lock', function(err) {
@@ -25,13 +26,14 @@ var updateJSONFile = function(data, callback) {
 };
 
 var Article = function(params) {
+  /**
+   * default values
+   */
   this._id = Date.now();
   this.body = '';
-  this.fbId = null;
-  this.liId = null;
-  this.twId = null;
-  this.tbId = null;
-  this.createdAt = new Date().toISOString();
+  if (!this.createdAt) {
+    this.createdAt = new Date().toISOString();
+  }
   // set properties
   for (var key in params) {
     this[key] = params[key];
@@ -45,6 +47,10 @@ Article.prototype.validate = function() {
   (!this.type) && (this.errors.type = "Article type cannot be blank");
   (!this.body) && (this.errors.body = "Article body cannot be blank");
   return Object.keys(this.errors).length===0;
+};
+
+Article.prototype.fromNow = function(date) {
+  return moment(date).fromNow();
 };
 
 Article.prototype.getProperties = function() {
@@ -67,13 +73,17 @@ Article.prototype.save = function(handler) {
   }
 };
 
+Article.prototype.getTitle = function() {
+  return this.body.match(/(.*?)[\r\n]/)[1];
+};
+
 Article.prototype.getSummary = function() {
   var summary = this.body;
   summary = summary.replace(/(.*?)[\r\n]/,""); // remove title part
   summary = summary.replace(/<(.*?)>/g,"");    // remove all tags
   summary = summary.replace(/[\=\-\#\*]/g,""); // remove markdown chars
-  if (summary.length > 239) {
-    return summary.trim().slice(0,239) + ' ...';
+  if (summary.length > 137) { 
+    return summary.trim().slice(0,137) + '...';
   }  else {
     return summary.trim();
   }
@@ -109,6 +119,7 @@ Article.findAll = function(params) {
   }
   return deferred.promise;
 };
+
 Article.findById = function(id, handler) {
   try {
     handler(null, Article.all()[id]);

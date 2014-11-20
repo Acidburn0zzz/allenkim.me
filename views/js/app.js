@@ -12,6 +12,8 @@ app.config(function($httpProvider) {
 });
 
 app.run(function($rootScope, $window) {
+  $rootScope.window = $window;
   $rootScope.location = $window.location;
+  $rootScope.locationEncoded = $window.encodeURIComponent($window.location.href);
   $rootScope.rand = Math.floor(Math.random()*1000000);
 });

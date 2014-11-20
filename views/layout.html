@@ -22,32 +22,27 @@
   <script src="/static/bower_components/angular-material/angular-material.js"></script>
   <!-- end -->
 
+  <!-- font-awsome -->
+  <link href="/static/bower_components/font-awsome/css/font-awesome.css" rel="stylesheet" />
+  <!-- end -->
+
   <script type="text/javascript" src="/static/js/lib/bubbles-background.js"></script>
   <link href="/static/css/common.css" rel="stylesheet" />
-  <style>
-    #contents > header:before { background-image: url(/static/images/bg{{rand%3+1}}.jpg); }
-  </style>
-
   <contents-html tag='head'></contents-html>
 </head>
 
 <body md-theme="orange" ng-cloak class="background-mantle">
   <div layout layout-align="center">
     <div id="contents" layout="vertical">
-      <header class="margin-5 round-5 text-shadow">
+      <header class="margin-5 round-5 text-shadow bg{{::rand%3+1}}">
         <div layout layout-align="center center" class="round-5"
           ng-class="{fadeout: location.pathname=='/' || location.pathname=='/articles' }">
-          <div flex>
-            <div layout="horizontal" layout-align="center center">
-              <img id="logo" float="left" src="/static/images/allen.kim.png"/>
-              <div layout="vertical" layout-align="center center" layout-padding>
-                <h1 class="margin-0"> Allen Kim<b hide-only="sm">'s Tech. Note</b></h1>
-                <sub>The best programming is, No programming.</sub>
-              </div>
+          <div layout="horizontal" layout-align="center center">
+            <img id="logo" float="left" src="/static/images/allen.kim.png"/>
+            <div layout="vertical" layout-align="center center" layout-padding>
+              <h1 class="margin-0"> Allen Kim<b hide-only="sm">'s Tech. Note</b></h1>
+              <sub>The best programming is, No programming.</sub>
             </div>
-          </div>
-          <div id="login-status" layout layout-align="center center">
-            <div ng-include="'/static/sessions/login-status.html'"></div>
           </div>
         </div>
       </header>
@@ -58,10 +53,18 @@
         <div style="clear:both"><div>
       </section>
 
-      <footer class="margin-5 round-5 padding-10">
+      <footer class="margin-5 round-5 padding-10" ng-controller="LoginController">
         &copy; 2014 Allen Kim.
         This page is developed with <a href="https://github.com/allenhwkim/lean">LEAN</a> framework
         and <a href="https://material.angularjs.org">Angular Material Design</a>.
+        <a ng-if="!Auth.isLoggedIn()" href="/login?redir={{location.pathname}}">
+          <md-tooltip>Login As Admininistrator</md-tooltip>
+          <i class="fa fa-cog"></i>
+        </a>
+        <a ng-if="Auth.isLoggedIn()" href="" ng-click="logout()">
+          <md-tooltip>Logout</md-tooltip>
+          <i class="fa fa-sign-out"></i>
+        </a>
       </footer>
     </div>
   </div>
