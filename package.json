@@ -1,6 +1,6 @@
 {
-  "name": "lean",
-  "version": "0.3.0",
+  "name": "allenkim.me",
+  "version": "0.5.0",
   "description": "light-weight angular express node blog",
   "main": "index.js",
   "directories": {
