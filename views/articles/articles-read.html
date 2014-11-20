@@ -1,45 +1,35 @@
 <pre class="paper margin-0" ngd-markdown-preview id="mp1">{{::article.body}}</pre>
 
 <div class="pull-left padding-5">
+  <small>updated {{::article.fromNow(scope.article.updatedAt)}}</small>
+  <br/>
   <a href="https://twitter.com/intent/tweet?text={{::article.getTitle()}}&url={{locationEncoded}}" target="_blank">
     <md-tooltip>Share this article on Twitter</md-tooltip>
-    <span class="fa-stack fa-lg">
-      <i class="fa fa-square-o fa-stack-2x"></i>
-      <i class="fa fa-twitter fa-stack-1x"></i>
-    </span>
+    <i class="fa fa-twitter"></i>
   </a>
+  &nbsp;
   <a href="https://www.facebook.com/sharer/sharer.php?u={{locationEncoded}}" target="_blank">
     <md-tooltip>Share this article on Facebook</md-tooltip>
-    <span class="fa-stack fa-lg">
-      <i class="fa fa-square-o fa-stack-2x"></i>
-      <i class="fa fa-facebook fa-stack-1x"></i>
-    </span>
+    <i class="fa fa-facebook"></i>
   </a>
+  &nbsp;
   <a href="https://www.linkedin.com/shareArticle?mini=true&url={{locationEncoded}}&title={{::article.getTitle()}}&summary={{::article.getSummary()}}"
     target="_blank">
     <md-tooltip>Share this article on LinkedIn</md-tooltip>
-    <span class="fa-stack fa-lg">
-      <i class="fa fa-square-o fa-stack-2x"></i>
-      <i class="fa fa-linkedin fa-stack-1x"></i>
-    </span>
+    <i class="fa fa-linkedin"></i>
   </a>
+  &nbsp;
   <a href="https://www.tumblr.com/share/link?url={{locationEncoded}}&name={{::article.getTitle()}}&description={{::article.getSummary()}}"
     target="_blank">
     <md-tooltip>Share this article on Tumblr</md-tooltip>
-    <span class="fa-stack fa-lg">
-      <i class="fa fa-square-o fa-stack-2x"></i>
-      <i class="fa fa-tumblr fa-stack-1x"></i>
-    </span>
+    <i class="fa fa-tumblr"></i>
   </a>
+  &nbsp;
   <a href="https://plus.google.com/share?url={{locationEncoded}}"
     target="_blank">
     <md-tooltip>Share this article on Google+</md-tooltip>
-    <span class="fa-stack fa-lg">
-      <i class="fa fa-square-o fa-stack-2x"></i>
-      <i class="fa fa-google-plus fa-stack-1x"></i>
-    </span>
+    <i class="fa fa-google-plus"></i>
   </a>
-  <small>updated {{::article.fromNow(scope.article.updatedAt)}}</small>
 </div>
 
 <div class="pull-right">

@@ -1,9 +1,11 @@
 app.controller('ArticlesUpdateController', 
-  function($scope, $http, $window, NgdFlash, Image) {
+  function($scope, $http, $window, $timeout, NgdFlash, Image) {
     $scope.save = function() {
       $http.put('/articles/'+$scope.article._id, $scope.article).then(function(resp) {
         NgdFlash.push("Updated successfully");
-        $window.location.href = "/articles"; 
+        $timeout(function() {
+          $window.location.href = "/articles"; 
+        });
       }, function(error) {
         alert(JSON.stringify(error));
       });

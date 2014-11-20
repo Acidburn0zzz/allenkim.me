@@ -8,7 +8,7 @@ body {
   font-size: 1.6rem;
 }
 a {
-  color: inherit;
+  color: #6666ff;
   text-decoration: none;
 }
 
@@ -27,11 +27,15 @@ a {
 .round-0  { border-radius: 0 }
 .round-5  { border-radius: 0.5rem }
 .round-10  { border-radius: 1rem }
+.round-20  { border-radius: 2rem }
 .bg-white  { background-color: #fff }
 .text-shadow { text-shadow: 1px 1px 1px #000; }
 .text-left {text-align: left}
 .text-right {text-align: right}
 .text-center {text-align: center}
+.inline-block {display:inline-block}
+.border-1 {border: 1px solid #ccc}
+.clearfix { content: ""; display: table; clear: both; }
 
 /*
  * backgrounds 
@@ -73,11 +77,14 @@ canvas#background {
 /**
  * contents-specific
  */
+#contents-wrapper {
+  min-height: 90%;
+}
 #contents {
   z-index: 2;
   max-width: 80rem;
   width: 100%;
-  min-height: 100%;
+  height: 100%;
   overflow: auto;
 }
 #contents > header {

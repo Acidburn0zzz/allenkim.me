@@ -22,7 +22,7 @@
 </head>
 
 <div ng-controller="ArticlesCreateController">
-  <form novalidate name="form" ng-submit="save()" ngd-form-unsaved>
+  <form novalidate name="form" ng-submit="save()">
     <div class="tabs" layout ng-init="tab='edit'">
       <a href="" ng-class="{paper: tab == 'edit'}" ng-click="tab='edit'">Edit</a>
       <a href="" ng-class="{paper: tab == 'preview'}" ng-click="preview()">Preview</a>

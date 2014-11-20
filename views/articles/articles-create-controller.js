@@ -1,12 +1,14 @@
 app.controller('ArticlesCreateController', 
-  function($scope, $http, $window, NgdFlash, Image) {
+  function($scope, $http, $window, $timeout, NgdFlash, Image) {
     $scope.article = {id: undefined, type: 'markdown', body: ''};
 
     $scope.save = function() {
       console.log('save clicked');
       $http.post('/articles', $scope.article).then(function(resp) {
         NgdFlash.push("Created successfully");
-        $window.location.href = "/articles"; 
+        $timeout(function() {
+          $window.location.href = "/articles"; 
+        });
       }, function(error) {
         alert(JSON.stringify(error));
       });
