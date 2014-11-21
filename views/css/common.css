@@ -144,6 +144,12 @@ pre[ngd-markdown-preview] {
   font-family: inherit;
   white-space: normal;
   font-size: inherit;
+  overflow: auto;
+}
+
+pre[ngd-markdown-preview] pre {
+  max-width: 100%;
+  overflow: auto;
 }
 
 /**

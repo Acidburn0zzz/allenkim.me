@@ -93,7 +93,9 @@ Article.all = function() {
   var txt = fs.readFileSync(articleJSON, 'utf8');
   var all = JSON.parse(txt);
   var articles = {};
-  for (var key in all) {
+  var keys = Object.keys(all).sort().reverse(); //recent one first
+  for (var i in keys) {
+    var key = keys[i];
     articles[key] = new Article(all[key]);
   }
   debug && console.log('articles', articles);

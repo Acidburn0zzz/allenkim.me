@@ -2,13 +2,14 @@ app.directive('contentsWidthHeight', [function() {
   return {
     link: function(scope, element, attrs) {
       var len = parseInt(attrs.contentsWidthHeight);
-      var width = (Math.min(len, 100) / 10) * 5;
-      width = Math.max(width, 20);
+      var width = Math.floor(len/50);
+      width = width > 50 ? 50 :
+              width < 20 ? 20 : 
+              width;
 
-      var height = Math.floor(Math.min(len/100, 3));
-      height = (height || 1) * 50;
-      var css = {minWidth: width+"%", minHeight: height+"px"};
-      console.log('css', css);
+      var rand = Math.floor(Math.random()*2)+1;
+      var height = ((len % 3) + 1) * 50;
+      var css = {width: width+"%", minHeight: height+"px"};
       element.css(css);
     }
   };
