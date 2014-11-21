@@ -14,7 +14,11 @@ var cookieParser = require('cookie-parser')
  * Web server Configuration
  */
 server.use(cookieParser());
-server.use(morgan('dev')); //combined, common, dev or short
+// server.use(morgan('dev')); //combined, common, dev or short
+// only log error responses
+server.use(morgan('combined', {
+  skip: function (req, res) { return res.statusCode < 400 }
+}));
 server.use(bodyParser({limit: '1mb'}));
 server.use(require('method-override')());
 server.use('/favicon.ico', express.static(config.baseDir + "/views"));
