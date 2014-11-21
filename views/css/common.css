@@ -5,6 +5,7 @@ html {
   font-size: 10px;
 }
 body {
+  background-color: transparent;
   font-size: 1.6rem;
 }
 a {
@@ -64,7 +65,7 @@ a {
  */
 canvas#background {
   position:fixed;
-  z-index: 1;
+  z-index: -1;
   left:0;
   top: 0;
   width: 100%;
