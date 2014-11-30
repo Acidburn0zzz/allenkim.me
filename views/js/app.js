@@ -4,7 +4,8 @@ var app = angular.module('app', [
                    //   . it sets $rootScope.Auth 
                    //   . it sets header, 'x-access-token', for all http request
                    //   . it broadcast 'auth-required' for 401 response
-  'ngd'            // collection of directives
+  'ngd',            // collection of directives
+  'ngMap'
 ]);
 
 app.config(function($httpProvider) {

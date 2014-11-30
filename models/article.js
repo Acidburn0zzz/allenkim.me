@@ -5,6 +5,7 @@ var lockFile = require('lockfile');
 var articleJSON = config.baseDir + "/db/articles.json";
 var debug = debug || 0;
 var moment = require('moment');
+var pagedown = require("pagedown");
 
 var updateJSONFile = function(data, callback) {
   lockFile.lock('articles.lock', function(err) {
@@ -82,11 +83,18 @@ Article.prototype.getSummary = function() {
   summary = summary.replace(/(.*?)[\r\n]/,""); // remove title part
   summary = summary.replace(/<(.*?)>/g,"");    // remove all tags
   summary = summary.replace(/[\=\-\#\*]/g,""); // remove markdown chars
+  summary = summary.replace(/\(https?:\/\/.*?\)/g,""); // remove markdown chars
   if (summary.length > 137) { 
     return summary.trim().slice(0,137) + '...';
   }  else {
     return summary.trim();
   }
+};
+
+Article.prototype.getBodyHtml = function() {
+  var converter = new pagedown.Converter();
+  var safeConverter = pagedown.getSanitizingConverter();
+  return converter.makeHtml(this.body);
 };
 
 Article.all = function() {

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html ng-app="app">
 <head>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <script src="/static/js/lib/html5shiv/html5shiv.js"></script>
   <script src="/static/js/lib/respond/respond.src.js"></script>
@@ -14,63 +16,69 @@
   <!-- angular material design -->
   <link href="/static/bower_components/angular-material/angular-material.css" rel="stylesheet" />
   <link rel="stylesheet" href="/static/bower_components/angular-material/themes/orange-theme.css">
-  <!-- link rel="stylesheet" href="/static/bower_components/angular-material/themes/indigo-theme.css" -->
-  <!-- link rel="stylesheet" href="/static/bower_components/angular-material/themes/green-theme.css" -->
   <script src="/static/bower_components/angular-aria/angular-aria.js"></script>
   <script src="/static/bower_components/angular-animate/angular-animate.js"></script>
   <script src="/static/bower_components/hammerjs/hammer.js"></script>
   <script src="/static/bower_components/angular-material/angular-material.js"></script>
   <!-- end -->
 
-  <!-- font-awsome -->
+  <!-- Google Map -->
+  <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
+  <script src="http://rawgithub.com/allenhwkim/angularjs-google-maps/master/build/scripts/ng-map.min.js"></script>
+  <!-- end -->
+
+  <!-- fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
   <link href="/static/bower_components/font-awsome/css/font-awesome.css" rel="stylesheet" />
   <!-- end -->
 
-  <script type="text/javascript" src="/static/js/lib/bubbles-background.js"></script>
   <link href="/static/css/common.css" rel="stylesheet" />
   <contents-html tag='head'></contents-html>
 </head>
 
-<body md-theme="orange" ng-cloak>
-  <div layout layout-align="center">
-    <div id="contents" layout="vertical">
-      <header class="margin-5 round-5 text-shadow bg{{::rand%3+1}}">
-        <div layout layout-align="center center" class="round-5"
-          ng-class="{fadeout: location.pathname=='/' || location.pathname=='/articles' }">
-          <div layout="horizontal" layout-align="center center">
-            <img id="logo" float="left" src="/static/images/allen.kim.png"/>
-            <div layout="vertical" layout-align="center center" layout-padding>
-              <h1 class="margin-0"> Allen Kim<b hide-only="sm">'s Tech. Note</b></h1>
-              <sub>The best programming is, No programming.</sub>
-            </div>
-          </div>
+<body ng-cloak class="clearfix">
+    <div id="contents" class="clearfix">
+      <header>
+        <div class="pull-left"></div> 
+        <div class="center">
+          <div class="px1">&nbsp;</div>
+          <a href="/"><h1 class="white text-shadow">Allen Kim's Tech Note</h1></a>
         </div>
+        <div class="pull-right"></div>
       </header>
 
-      <section flex class="margin-5 bg-white round-5 padding-10">
-        <div ngd-flash class="green"></div>
-        <contents-html tag='body'></contents-html>
-        <div style="clear:both"><div>
+      <section class="round-5 padding-20 clearfix">
+        <div class="pull-left"></div> 
+        <div>
+          <div ngd-flash class="green"></div>
+          <contents-html tag='body'></contents-html>
+        </div> 
+        <div class="pull-right"></div>
       </section>
 
-      <footer class="margin-5 round-5 padding-10" ng-controller="LoginController">
-        &copy; 2014 Allen Kim.
-        This page is developed with <a href="https://github.com/allenhwkim/lean">LEAN</a> framework
-        and <a href="https://material.angularjs.org">Angular Material Design</a>.
-        <a ng-if="!Auth.isLoggedIn()" href="/login?redir={{location.pathname}}">
-          <md-tooltip>Login As Admininistrator</md-tooltip>
-          <i class="fa fa-cog"></i>
-        </a>
-        <a ng-if="Auth.isLoggedIn()" href="" ng-click="logout()">
-          <md-tooltip>Logout</md-tooltip>
-          <i class="fa fa-sign-out"></i>
-        </a>
+      <footer class="margin-5 round-5 padding-10 white">
+        <div class="pull-left"></div> 
+        <div></div>
+        <div class="pull-right">
+          &copy; 2014 Allen Kim.
+          This site is developed with 
+          <a href="https://github.com/allenhwkim/lean">LEAN</a> framework
+          and 
+          <a href="https://material.angularjs.org">Angular Material Design</a>.
+          <span  ng-controller="LoginController">
+            <a ng-if="!Auth.isLoggedIn()" href="/login?redir={{location.pathname}}">
+              <md-tooltip>Login As Admininistrator</md-tooltip>
+              <i class="fa fa-cog"></i>
+            </a>
+            <a ng-if="Auth.isLoggedIn()" href="" ng-click="logout()">
+              <md-tooltip>Logout</md-tooltip>
+              <i class="fa fa-sign-out"></i>
+            </a>
+          </span>
+        </div> 
       </footer>
     </div>
-  </div>
-  <script src="/static/sessions/login-controller.js"></script>
-  <canvas id="background" class="background-mantle">canvas background</canvas>
-  <script>BubblesBackground("canvas#background");</script>
+    <script src="/static/sessions/login-controller.js"></script>
 </body>
 </html>
 
