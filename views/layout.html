@@ -39,48 +39,48 @@
 </head>
 
 <body ng-cloak class="clearfix">
-    <div id="contents" class="clearfix">
-      <header>
-        <div class="pull-left"></div> 
-        <div class="center">
-          <div class="px1">&nbsp;</div>
-          <a href="/"><h1 class="white text-shadow">Allen Kim's Tech Note</h1></a>
-        </div>
-        <div class="pull-right"></div>
-      </header>
+  <div id="contents" class="clearfix">
+    <header>
+      <div class="pull-left"></div> 
+      <div class="center">
+        <div class="px1">&nbsp;</div>
+        <a href="/"><h1 class="white text-shadow">Allen Kim's Tech Note</h1></a>
+      </div>
+      <div class="pull-right"></div>
+    </header>
 
-      <section class="round-5 padding-20 clearfix">
-        <div class="pull-left"></div> 
-        <div>
-          <div ngd-flash class="green"></div>
-          <contents-html tag='body'></contents-html>
-        </div> 
-        <div class="pull-right"></div>
-      </section>
+    <section class="round-5 padding-20 clearfix">
+      <div class="pull-left"></div> 
+      <div>
+        <div ngd-flash class="green"></div>
+        <contents-html tag='body'></contents-html>
+      </div> 
+      <div class="pull-right"></div>
+    </section>
 
-      <footer class="margin-5 round-5 padding-10 white">
-        <div class="pull-left"></div> 
-        <div></div>
-        <div class="pull-right">
-          &copy; 2014 Allen Kim.
-          This site is developed with 
-          <a href="https://github.com/allenhwkim/lean">LEAN</a> framework
-          and 
-          <a href="https://material.angularjs.org">Angular Material Design</a>.
-          <span  ng-controller="LoginController">
-            <a ng-if="!Auth.isLoggedIn()" href="/login?redir={{location.pathname}}">
-              <md-tooltip>Login As Admininistrator</md-tooltip>
-              <i class="fa fa-cog"></i>
-            </a>
-            <a ng-if="Auth.isLoggedIn()" href="" ng-click="logout()">
-              <md-tooltip>Logout</md-tooltip>
-              <i class="fa fa-sign-out"></i>
-            </a>
-          </span>
-        </div> 
-      </footer>
-    </div>
-    <script src="/static/sessions/login-controller.js"></script>
+    <footer class="margin-5 round-5 padding-10 white">
+      <div class="pull-left"></div> 
+      <div></div>
+      <div class="pull-right">
+        &copy; 2014 Allen Kim.
+        This site is developed with 
+        <a href="https://github.com/allenhwkim/lean">LEAN</a> framework
+        and 
+        <a href="https://material.angularjs.org">Angular Material Design</a>.
+        <span  ng-controller="LoginController">
+          <a ng-if="!Auth.isLoggedIn()" href="/login?redir={{location.pathname}}">
+            <md-tooltip>Login As Admininistrator</md-tooltip>
+            <i class="fa fa-cog"></i>
+          </a>
+          <a ng-if="Auth.isLoggedIn()" href="" ng-click="logout()">
+            <md-tooltip>Logout</md-tooltip>
+            <i class="fa fa-sign-out"></i>
+          </a>
+        </span>
+      </div> 
+    </footer>
+  </div>
+  <script src="/static/sessions/login-controller.js"></script>
 </body>
 </html>
 

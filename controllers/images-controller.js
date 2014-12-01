@@ -20,6 +20,19 @@ var ImagesController = {
       }
       res.send(200, {urls: urls});
     });
+  },
+
+  background: function(req, res) {
+    var num  = (new Date()).getMinutes() % 6;
+    var imgPath = config.imageDir + "/bg-" + num + ".jpg";
+    fs.readFile(imgPath, function(err, data) {
+      if (err) {
+        throw err;
+      } else {
+        res.writeHead(200, {'Content-Type': 'image/jpg' });
+        res.end(data, 'binary');
+      }
+    });
   }
 };
 

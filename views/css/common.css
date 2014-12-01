@@ -4,7 +4,7 @@ html, body {
 }
 html {
   font-size: 10px;
-  background-image:url(/static/images/bg0.jpg);
+  background-image:url(/images/bg); /* rotating background image */
   background-repeat:no-repeat;
   background-position: top center; 
   background-attachment: fixed; 
@@ -26,6 +26,11 @@ a {
 }
 pre {
   overflow: auto;
+}
+h1,h2,h3,h4 {
+  font-weight: 800;
+  text-transform: uppercase;
+  font-family: 'Open Sans', sans-serif;
 }
 
 /**

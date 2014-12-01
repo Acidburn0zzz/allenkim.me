@@ -35,6 +35,8 @@ server.get('/', appCtrl({controller:'articles', action: 'list'}));
 server.get('/login', appCtrl({controller:'sessions', action:'create'}));
 server.post('/login', appCtrl({controller:'sessions'}));
 
+server.get('/images/bg', appCtrl({controller:'images', action:'background'})); //rotating bg image
+
 server.get('/:controller.:format?', appCtrl());     // list
 server.get('/:controller/create', auth.hasRole('admin'), appCtrl({action:'create'}));      // GET: create
 server.get('/:controller/:id.:format?', appCtrl()); // show
