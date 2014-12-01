@@ -5,7 +5,7 @@
 <div id="articles" class="columns-3">
   <div class="article paper" ng-repeat="article in articles" bind-once href="/articles/{{::article._id}}">
     <a class="title" href="/articles/{{::article._id}}">
-      <h3>{{::article.body.match(/(.*)\n?/)[1]}}</h3>
+      <h2>{{::article.body.match(/(.*)\n?/)[1]}}</h2>
       <div class="summary">
         {{::article.getSummary()}}
         <span class="time">{{::article.fromNow(scope.article.createdAt)}}</span>

@@ -4,7 +4,7 @@ html, body {
 }
 html {
   font-size: 10px;
-  background-image:url(/static/images/bg4.jpeg);
+  background-image:url(/static/images/bg0.jpg);
   background-repeat:no-repeat;
   background-position: top center; 
   background-attachment: fixed; 
@@ -17,6 +17,7 @@ body {
   background: transparent;
   color: #333;
   font-family: 'Raleway', sans-serif;
+  font-family: 'Merriweather', serif;
   font-size: 1.6rem;
 }
 a {
@@ -160,11 +161,10 @@ div#articles .title {
   color: #333;
 }
 div#articles .summary {
-  font-size: 1.3rem;
   color: #aaa;
 }
 div#articles .time {
-  font-size: 1.2rem;
+  font-size: 0.9em;
   color: #333;
 }
 
