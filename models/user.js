@@ -2,7 +2,7 @@ var crypto = require('crypto');
 
 var users = [{
   username: '21232f297a57a5a743894a0e4a801fc3',
-  password: '25e4ee4e9229397b6b17776bfceaf8e7',
+  password: '9d51b3f14e6d6763bd11fd73cf470bf1',
   roles: ['admin']
 }];
 var md5 = function(str) {

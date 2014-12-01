@@ -1,3 +1,7 @@
+<head>
+  <title>{{::article.getTitle()}}</title>
+  <meta itemprop="image" property="og:image" content="{{::article.getImage()}}" /> <!-- image for Facebook -->
+</head>
 <div class="paper margin-0" id="article">{{::article.getBodyHtml()}}</div>
 <small>updated {{::article.fromNow(scope.article.updatedAt)}}</small>
 <br class="clearfix" />
@@ -13,13 +17,13 @@
     <i class="fa fa-2x fa-facebook"></i>
   </a>
   &nbsp;
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url={{locationEncoded}}&title={{::article.getTitle()}}&summary={{::article.getSummary()}}"
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url={{locationEncoded}}&title={{::article.getTitle()}}"
     target="_blank">
     <md-tooltip>Share this article on LinkedIn</md-tooltip>
     <i class="fa fa-2x fa-linkedin"></i>
   </a>
   &nbsp;
-  <a href="https://www.tumblr.com/share/link?url={{locationEncoded}}&name={{::article.getTitle()}}&description={{::article.getSummary()}}"
+  <a href="https://www.tumblr.com/share/link?url={{locationEncoded}}&name={{::article.getTitle()}}&description={{::article.getSummary()}}&source={{::article.getImage()}}"
     target="_blank">
     <md-tooltip>Share this article on Tumblr</md-tooltip>
     <i class="fa fa-2x fa-tumblr"></i>

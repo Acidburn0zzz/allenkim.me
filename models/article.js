@@ -93,8 +93,14 @@ Article.prototype.getSummary = function() {
 
 Article.prototype.getBodyHtml = function() {
   var converter = new pagedown.Converter();
-  var safeConverter = pagedown.getSanitizingConverter();
-  return converter.makeHtml(this.body);
+  this.bodyHtml = converter.makeHtml(this.body);
+  return this.bodyHtml;
+};
+
+Article.prototype.getImage = function() {
+  this.bodyHtml = this.bodyHtml || this.getBodyHtml();
+  var imgMatches = this.bodyHtml.match(/<img.*?src=['"]?([^'"]+)['"]?/);
+  return imgMatches ? imgMatches[1] : "";
 };
 
 Article.all = function() {
