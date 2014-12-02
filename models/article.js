@@ -97,10 +97,12 @@ Article.prototype.getBodyHtml = function() {
   return this.bodyHtml;
 };
 
-Article.prototype.getImage = function() {
+Article.prototype.getImage = function(encodeUrl) {
   this.bodyHtml = this.bodyHtml || this.getBodyHtml();
   var imgMatches = this.bodyHtml.match(/<img.*?src=['"]?([^'"]+)['"]?/);
-  return imgMatches ? imgMatches[1] : "";
+  var imgUrl = imgMatches ? imgMatches[1] : "/static/images/pencil.png";
+  encodeUrl && (imgUrl = encodeURIComponent(imgUrl));
+  return imgUrl;
 };
 
 Article.all = function() {
