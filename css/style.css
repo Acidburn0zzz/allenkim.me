@@ -1,0 +1,226 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+button,
+input,
+select,
+textarea {
+  color: #333;
+}
+
+body {
+  font: 400 16px/1.667 "Open Sans",sans-serif;
+  font-size: 1em;
+  line-height: 1.54;
+  background-color: #fff;
+}
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+audio,
+canvas,
+img,
+video {
+  vertical-align: middle;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+footer {
+  background: #000;
+  color: #fff;
+  text-align: center;
+}
+
+footer ul li {
+  display: inline-block;
+  padding-left: 1em;
+}
+
+a {
+  text-decoration: none;
+}
+
+/**
+ * custom classes 
+ */
+/* ---- width/height ---- */
+.h-100  { height: 100%; }
+.h-75   { height: 50%; }
+.h-50   { height: 50%; }
+.w-100  { width: 100%; }
+.w-75   { width: 75%; }
+.w-50   { width: 50%; }
+.w-25   { width: 25%; }
+.vw-100 { width: 100vw; }
+.vw-75  { width: 75vw; }
+.vw-50  { width: 50vw; }
+.vw-25  { width: 50vw; }
+.vh-100 { height: 100vh; }
+.vh-75  { height: 75vh; }
+.vh-50  { height: 50vh; }
+.vh-25  { height: 25vh; }
+
+/* ---- position/alignment ---- */
+.pos-absolute { position: absolute; }
+.pos-relative { position: relative; }
+.pos-fixed    { position: fixed; } /* fixed to window, not to document */
+.align-bottom { z-index: -1; } /* on the bottom of stack */
+.align-top { z-index: 3000; } /* on the top of stack */
+.pos-fixed.align-top { z-index: 3001; } /* on the top of stack */
+
+/* ---- background ---- */
+.bg-cover { background-position: center center; background-repeat: no-repeat; background-size: cover; }
+.bg-white { background-color: #fff; }
+
+/* ---- text ---- */
+.txt-white { color: #fff; }
+.txt-shadow { text-shadow: 0px 1px 1px #333; }
+.txt-center { text-align: center; }
+.txt-red { color: #b1470a; }
+
+/* ---- paddings ---- */
+.pad-1 { padding: 1em};
+.pad-t3 { padding-top: 3em};
+
+/* ---- NO's ---- */
+.no-overflow { overflow: hidden; }
+.no-style { list-style: none; }
+.no-padding { padding:0; }
+.no-margin { margin:0; }
+
+/* ---- clear float ---- */
+.clearfix:before, .clearfix:after { content: " "; display: table; }
+.clearfix:after { clear: both; }
+
+/* ---- flexbox layout ---- */
+.flex-vertical { 
+  flex-direction: column;
+  -webkit-flex-direction: column;
+}
+.flex-h-start, .flex-h-left { 
+  display:flex;
+  display:-webkit-flex;
+  justify-content:flex-start;
+  -webkit-justify-content: flex-start;
+}
+.flex-h-end, .flex-h-right {
+  display:flex;
+  display:-webkit-flex;
+ -webkit-justify-content: flex-end;
+ justify-content: flex-end;
+}
+.flex-h-center {
+  display:flex;
+  display:-webkit-flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+.flex-h-space-between {
+  display:flex;
+  display:-webkit-flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+.flex-h-space-around {
+  display:flex;
+  display:-webkit-flex;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+}
+.flex-v-start, .flex-v-top {
+  display:flex;
+  display:-webkit-flex;
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
+}
+.flex-v-end, .flex-v-bottom {
+  display:flex;
+  display:-webkit-flex;
+  -webkit-align-items: flex-end;
+  align-items: flex-end;
+}
+.flex-v-center {
+  display:flex;
+  display:-webkit-flex;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.flex-v-space-between {
+  display:flex;
+  display:-webkit-flex;
+  -webkit-align-content: space-between;
+  align-content: space-between;
+}
+.flex-v-space-around {
+  display:flex;
+  display:-webkit-flex;
+  -webkit-align-content: space-around;
+  align-content: space-around;
+}
+
+/**
+ *  business-specific styles
+ */ 
+.wrapper { width: 90%;
+  max-width: 1162px;
+  margin: 0 auto;
+  padding: 1em 5% 1em 5%;
+}
+
+.header-container.half-scrolled {
+  background: #fff;
+  border-bottom: 1px solid #ccc;
+}
+
+.header-container.half-scrolled,
+.header-container.half-scrolled a {
+  color: #333;
+}
+
+.header-container:not(.half-scrolled),
+.header-container:not(.half-scrolled) a {
+  color: #fff;
+}
+
+.header-container nav a {
+  display: block;
+  font-weight: bold;
+  padding: 0 1em;
+}
+
+.header-container header div {
+  line-height: 48px;
+}

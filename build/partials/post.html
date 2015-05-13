@@ -1,0 +1,17 @@
+<article class="main-container bg-white clearfix">
+  <div class="vh-50 bg-cover" style="background-image:url(images/nature{{random}}.jpg)">
+  </div>
+  <div class="wrapper">
+    <div class="pull-right w-25 pad-1 pad-t3 h-100">
+      Recent Posts
+      <ul>
+        <li ng-repeat="post in posts">
+        <a href="#/{{post.path}}">{{post.title}}</a>
+        </li>
+      </ul>
+    </div>
+    <div class="w-75" ng-include="'/build/posts/'+post">
+    </div>
+  </div>
+</article>
+
