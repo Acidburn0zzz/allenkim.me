@@ -1,17 +1,19 @@
 {
   "name": "allenkim.me",
-  "version": "0.5.0",
-  "description": "light-weight angular express node blog",
+  "version": "0.6.0",
+  "description": "Allen Kim Wants To Be A UX Designer",
   "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
   "scripts": {
+    "clean": "rm -rf build",
+    "mkdir": "mkdir -p build/api build/posts build/css build/fonts build/images build/js build/partials build/vendor",
+    "copy": "cp -R css/* build/css; cp -R fonts/* build/fonts; cp -R images/* build/images; cp -R js/* build/js; cp -R partials/* build/partials; cp -R vendor/* build/vendor; cp index.html build; ",
+    "build": "npm run clean && npm run mkdir && npm run copy && node scripts/build.js",
+    "serve": "need to run a server using browser-sync and watch the changes",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/allenhwkim/articles.git"
+    "url": "https://github.com/allenhwkim/allenkim.me.git"
   },
   "keywords": [
     "blog",
@@ -21,20 +23,16 @@
   "author": "Allen Kim",
   "license": "MIT",
   "readmeFilename": "README.md",
-  "gitHead": "432a4074af7f1a0693ca2ef980bbb18eabfe0814",
   "dependencies": {
-    "angular-template": "^0.1.6",
-    "body-parser": "~1.0.1",
-    "cookie-parser": "^1.3.3",
-    "entities": "^1.1.1",
-    "express": "~4.0.0",
-    "jwt-simple": "^0.2.0",
-    "lockfile": "^1.0.0",
-    "method-override": "~1.0.0",
-    "moment": "^2.8.4",
-    "morgan": "^1.5.0",
-    "multiparty": "~3.2.8",
-    "pagedown": "^1.1.0",
-    "q": "^1.0.1"
+    "gulp": "^3.8.10"
+  },
+  "devDependencies": {
+    "angular-template": "^0.3.0",
+    "browser-sync": "^2.7.1",
+    "front-matter": "^1.0.0",
+    "glob": "^5.0.3",
+    "marked": "^0.3.3",
+    "run-sequence": "^1.0.2",
+    "through2": "^0.6.3"
   }
 }

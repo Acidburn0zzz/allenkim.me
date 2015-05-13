@@ -1,0 +1,22 @@
+<ul>
+<li><p>To draw your page every time when page loads, append the following code at the end of your page</p>
+<pre><code>&lt;script src=\&quot;https://rawgit.com/allenhwkim/drawpage/master/draw-page.js\&quot;&gt;&lt;/script&gt;
+&lt;script&gt;drawPage()&lt;/script&gt;
+</code></pre></li>
+<li><p>Or, only to test how it looks like</p>
+<ol>
+<li>Go to any web page, and open a console</li>
+<li><p>copy paste the following code if <a href="https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy">\&quot;Content-Security-Policy\&quot;</a> is allowed</p>
+<pre><code>  (function() {
+     var dp = document.createElement(&#39;script&#39;); dp.type = &#39;text/javascript&#39;; dp.async = true;
+     dp.src = &#39;https://rawgit.com/allenhwkim/drawpage/master/draw-page.js&#39;;
+     document.documentElement.appendChild(dp);
+   })();
+</code></pre></li>
+<li><p>run <code>drawPage()</code> command</p>
+</li>
+</ol>
+</li>
+</ul>
+<p>I used flatten.js by Timo, <a href="https://github.com/timo22345">https://github.com/timo22345</a>. I thank him for his amazing script.</p>
+<p>Let me know if you have questions.</p>

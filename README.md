@@ -1,6 +1,7 @@
-To run the server
+To generate github page contents
+  
+  * gulp build
 
-  * `$ git clone https://github.com/allenhwkim/allenkim.me.git`
-  * `$ cd allenkim.me && npm install`
-  * `$ mkdir db && echo "{}" > db/articles.json`
-  * `$ scripts/server`
+To publish to github
+
+  * TODO: don't know how to yet
