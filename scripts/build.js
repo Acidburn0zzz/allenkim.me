@@ -61,7 +61,7 @@
     var tocPath = path.join(OUTPUT_DIR, '/toc.html'), html = '';
     for (var i=0; i<articleData.length; i++) {
       var article = articleData[i];
-      html +=  '<a href="'+article.path+'">' + article.title + '</a><br/>';
+      html +=  '<a href="/#/'+article.path+'">' + article.title + '</a><br/>';
     }
     fs.writeFileSync(tocPath, html);
 

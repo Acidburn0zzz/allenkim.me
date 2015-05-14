@@ -1,5 +1,7 @@
 
-  <article class="intro-container bg-cover txt-white flex-vertical pos-fixed w-100 vh-100 flex-h-center align-bottom">
+  <article 
+    class="intro-container bg-cover txt-white flex-vertical pos-fixed w-100 vh-100 flex-h-center"
+    ng-class="{'align-bottom': winTop > 0}">
     <section class="flex-h-center flex-v-center" style="flex:1">
       <div class="wrapper txt-center" >
         <a href="https://ca.linkedin.com/in/allenhwkim"><img src="images/social/facebook.png" /></a>
@@ -12,7 +14,7 @@
       <i class="fa fa-chevron-down fa-2x"></i>
     </section>
   </article>
-  <div class="w-100 vh-100"><!-- filler for intro-container --></div>
+  <div class="vh-100" style="width:1px"><!-- filler for intro-container --></div>
 
   <article class="main-container bg-white">
     <div ng-repeat="post in posts">
