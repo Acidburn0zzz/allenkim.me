@@ -41,3 +41,10 @@ nav ul li { /* IE Fixes */
   background-image: url(../images/intro.jpg);
 }
 
+#recent-posts {
+  display: none;
+}
+#post {
+  width: 100%;
+}
+

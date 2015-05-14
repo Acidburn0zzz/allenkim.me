@@ -1,7 +1,7 @@
 {
   "name": "allenkim.me",
   "version": "0.6.0",
-  "description": "Allen Kim Wants To Be A UX Designer",
+  "description": "Less Code, More Output - Allen Kim",
   "main": "index.js",
   "scripts": {
     "clean": "rm -rf build",

@@ -121,6 +121,9 @@ a {
 .no-padding { padding:0; }
 .no-margin { margin:0; }
 
+/** -- AUTO's ---- */
+.auto-overflow { overflow: auto; }
+
 /* ---- clear float ---- */
 .clearfix:before, .clearfix:after { content: " "; display: table; }
 .clearfix:after { clear: both; }

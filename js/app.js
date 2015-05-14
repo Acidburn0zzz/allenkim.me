@@ -31,7 +31,6 @@
       $rootScope.winTop = $window.pageYOffset;
       $rootScope.winBottom = $window.pageYOffset + $window.innerHeight;
       $rootScope.winHeight = $window.innerHeight;
-      $rootScope.docHeight = $window.document.body.scrollHeight;
       $rootScope.$apply();
     });
   });
@@ -39,9 +38,14 @@
   angular.module('blog').controller('homeCtrl', function($scope, $http) {
   });
 
-  angular.module('blog').controller('postCtrl', function($scope, $stateParams) {
-    console.log('$stateParams', $stateParams);
+  angular.module('blog').controller('postCtrl', function($scope, $rootScope, $stateParams, filterFilter) {
     $scope.post = $stateParams.post;
+    document.title = $scope.post.
+      replace(/\.html$/, '').
+      replace(/^(.*)[0-9]+/, '').
+      replace(/-([a-z])/gi, function(_, $1) { 
+        return ' ' + $1.toUpperCase();
+      });
     $scope.random = Math.floor(Math.random()*12);
   });
 })();
