@@ -8,7 +8,8 @@
     "mkdir": "mkdir -p build/api build/posts build/css build/fonts build/images build/js build/partials build/vendor",
     "copy": "cp -R css/* build/css; cp -R fonts/* build/fonts; cp -R images/* build/images; cp -R js/* build/js; cp -R partials/* build/partials; cp -R vendor/* build/vendor; cp index.html build; ",
     "build": "npm run clean && npm run mkdir && npm run copy && node scripts/build.js",
-    "serve": "need to run a server using browser-sync and watch the changes",
+    "serve": "TODO: need to run a server and watch the changes",
+    "deploy": "cd ../allenhwkim.github.io && sh deploy.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

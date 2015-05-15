@@ -31,6 +31,7 @@
     var summary = markdown.split('<!--more-->')[0];
     summary = marked(summary).replace(/<[^>]+>/g,'');
     articleData.path = articlePath.replace(/\.md$/, '.html');
+    articleData.date = articlePath.match(/\/([0-9]+)-/)[1];
     articleData.summary = summary;
     return articleData;
   };
@@ -88,6 +89,10 @@
       articleData = getArticleData(articlePath);
       allArticles.push(articleData);
     }
+    //sort by date descending order
+    allArticles = allArticles.sort(function(down,up) { 
+      return up.date > down.date;
+    });
 
     writeIndexes(allArticles); // index.json, page1.json, ..etc
   });
