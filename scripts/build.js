@@ -17,7 +17,7 @@
     var html = marked(markdown);
     var htmlPath = path.join(OUTPUT_DIR,
       articlePath.
-        replace('posts/','_posts/').
+        replace('posts/','partials/posts/').
         replace(/\.md$/, '.html')); 
     fs.writeFileSync(htmlPath, html);
   };
