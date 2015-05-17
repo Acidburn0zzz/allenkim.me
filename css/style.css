@@ -204,6 +204,7 @@ a {
 }
 
 .header-container.half-scrolled {
+  height: 6.5em;
   background: #fff;
   border-bottom: 1px solid #ccc;
 }

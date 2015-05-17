@@ -3,10 +3,10 @@
   angular.module('blog',['ngTouch', 'ui.router']);
 
   angular.module('blog').config(function($stateProvider, $locationProvider, $urlRouterProvider) {
-    //$locationProvider.html5Mode(true);
+    $locationProvider.html5Mode(true);
     $stateProvider
       .state('home', {
-        url: '/',
+        url: '/?404',
         templateUrl: 'partials/home.html',
         controller: 'homeCtrl'
       })
@@ -15,6 +15,7 @@
         templateUrl: 'partials/post.html',
         controller: 'postCtrl'
       });
+
 
     $urlRouterProvider.otherwise('/');
   });
@@ -35,7 +36,12 @@
     });
   });
 
-  angular.module('blog').controller('homeCtrl', function($scope, $http) {
+  angular.module('blog').controller('homeCtrl', function($stateParams, $location) {
+    if ($stateParams['404']) {
+      var url=$stateParams['404'].replace(/\/$/,'');
+      $location.search('404', null); 
+      $location.path(url);
+    }
   });
 
   angular.module('blog').controller('postCtrl', function($scope, $rootScope, $stateParams, filterFilter) {

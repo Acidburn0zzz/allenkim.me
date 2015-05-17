@@ -15,7 +15,10 @@
     var contents = fs.readFileSync(articlePath).toString();
     var markdown = contents.replace(/---(.|\n)*---/m,'');
     var html = marked(markdown);
-    var htmlPath = path.join(OUTPUT_DIR, articlePath.replace(/\.md$/, '.html')); 
+    var htmlPath = path.join(OUTPUT_DIR,
+      articlePath.
+        replace('posts/','_posts/').
+        replace(/\.md$/, '.html')); 
     fs.writeFileSync(htmlPath, html);
   };
 

@@ -5,6 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  <base href="/" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>Less Code, More Output - Allen Kim</title>
   <meta name"description" content="">
@@ -34,7 +35,7 @@
     ng-class="{'half-scrolled': $state.current.name != 'home' || (winTop/winHeight > 0.5)}">
     <header class="wrapper clearfix">
       <div class="logo pull-left">
-        <a href="#/">Allen Kim</a>
+        <a href="/">Allen Kim</a>
       </div>
       <div class="mobile-nav pull-right" ng-click="navOpen = !navOpen"  ng-class="{'open' : navOpen}">
         <div class="bars"><i class="fa fa-2x fa-bars"></i></div>
@@ -53,7 +54,8 @@
       </nav>
     </header>
   </div>
-  <div ng-if="$state.current.url !== '/'" style="height: 88px;" class="align-bottom"></div>
+  <!-- filler to start contents after header, not under header -->
+  <div ng-if="$state.current.name != 'home'" class="align-bottom header-container half-scrolled "></div>
 
   <div ui-view></div>
 

@@ -7,13 +7,13 @@
       Recent Posts
       <ul>
         <li ng-repeat="post in posts">
-        <a href="#/{{post.path}}">{{post.title}}</a>
+        <a href="/{{post.path}}">{{post.title}}</a>
         </li>
       </ul>
     </div>
     <div id="post"
       class="w-75 auto-overflow" 
-      ng-include="'/build/posts/'+post">
+      ng-include="'/_posts/'+post">
     </div>
   </div>
 </article>

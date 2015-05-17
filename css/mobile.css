@@ -14,6 +14,10 @@ nav ul li { /* IE Fixes */
   max-width: 80%;
   font-size: 1.5em;
 }
+.header-container header .mobile-nav {
+  text-align: right;
+  width: 48px;
+}
 .header-container header .mobile-nav div {
   display: none;
 }
@@ -22,6 +26,10 @@ nav ul li { /* IE Fixes */
 }
 .header-container header .mobile-nav:not(.open) .bars{
   display: block;
+}
+.header-container header .mobile-nav.open .close i::before,
+.header-container header .mobile-nav:not(.open) .bars i::before {
+  line-height: 48px;
 }
 .header-container header .mobile-nav ~ .menus {
   padding: 1em 0;
