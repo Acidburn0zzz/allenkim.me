@@ -1,14 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script>
-      //HTML5 pushState. not actual path. redirect to /index.html?404=<url>
-      if (window.location.pathname.match(/^\/posts/)) {
-        window.loation.href = '/?404='+window.location.pathname;
-      }
-    </script>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src data:; connect-src 'self'">
     <title>Page not found &middot;  Allen Kim </title>
     <style type="text/css" media="screen">
       body {
@@ -54,6 +47,13 @@
 
     </style>
   <body>
+
+    <script>
+      //HTML5 pushState. not actual path. redirect to /index.html?404=<url>
+      if (window.location.pathname.match(/^\/posts/)) {
+        window.location.href = '/?404='+window.location.pathname;
+      }
+    </script>
 
     <div class="container">
 

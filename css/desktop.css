@@ -17,6 +17,10 @@
   padding: 0px 1em;
 }
 
+.header-container.half-scrolled {
+  height: 5em;
+}
+
 .intro-container {
   background-image: url(../images/intro-md.jpg);
 }
