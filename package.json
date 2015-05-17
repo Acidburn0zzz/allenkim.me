@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rm -rf build/*",
     "mkdir": "cd build && mkdir -p api css fonts images js partials/posts vendor",
-    "copy": "cp -R css fonts images images js partials vendor *.html build",
+    "copy": "cp -R css fonts images images js partials vendor *.html *.ico build",
     "build": "npm run clean && npm run mkdir && npm run copy && node scripts/build.js",
     "serve": "TODO: need to run a server and watch the changes",
     "deploy": "npm run build && cd ../allenhwkim.github.io && sh deploy.sh",
